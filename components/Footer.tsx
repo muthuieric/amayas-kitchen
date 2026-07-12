@@ -3,7 +3,7 @@ import { Clock, Facebook, Instagram, MapPin, Phone } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer id="contact" className="scroll-mt-16 border-t bg-white">
+    <footer id="contact" className="mt-auto border-t border-gray-200 bg-white py-12">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-3">
         <div>
           <p className="text-lg font-black text-slate-900">

@@ -10,6 +10,7 @@ export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
 
   return (
+<div className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all hover:shadow-md border border-gray-100">
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-shadow hover:shadow-xl">
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
@@ -52,5 +53,6 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
       </div>
     </article>
+    </div>
   );
 }

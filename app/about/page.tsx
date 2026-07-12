@@ -47,12 +47,13 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
         <div className="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-28">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-accent">
-            <Sparkles size={13} /> Our Story
+            Our Story
           </span>
           <h1 className="mt-4 font-display text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
             A little taste of the <span className="text-accent">Kenyan coast</span>, right in
             Kilimani.
           </h1>
+          
           <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg">
             Amaya's Swahili Kitchen was born from a simple wish - to bring the aromatic,
             coconut-rich cooking of Mombasa, Lamu and Malindi to the heart of Nairobi.

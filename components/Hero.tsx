@@ -18,13 +18,13 @@ export function Hero() {
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-start px-4 py-24 sm:px-6 sm:py-32 lg:py-40">
         <span className="rounded-full bg-orange-500/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-orange-500 backdrop-blur-sm">
-          Karibu · Est. Kilimani
+          Karibu
         </span>
         <h1 className="mt-5 max-w-2xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
           Authentic Coastal Flavors in the Heart of Kilimani
         </h1>
         <p className="mt-4 max-w-lg text-base text-gray-200 sm:text-lg">
-          Slow-cooked pilau, smoky mshikaki and coconut-rich curries — made fresh daily, delivered
+          Slow-cooked pilau, smoky mshikaki and coconut-rich curries made fresh daily, delivered
           hot to your door.
         </p>
         <Link
