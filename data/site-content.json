@@ -1,0 +1,46 @@
+{
+  "reviews": [
+    {
+      "name": "Juma K.",
+      "review": "The best pilau in Nairobi, hands down. Tastes just like my bibi used to make. The delivery was quick and the food arrived hot. Will be ordering again very soon!",
+      "avatar": "/avatars/juma.jpg"
+    },
+    {
+      "name": "Wanjiru M.",
+      "review": "I'm obsessed with the coconut fish curry! It's so rich and flavorful. The chapatis are soft and perfect for dipping. Amaya's is my new go-to for Swahili food.",
+      "avatar": "/avatars/wanjiru.jpg"
+    },
+    {
+      "name": "David O.",
+      "review": "Finally, authentic mshikaki that's actually grilled properly. The smokiness is incredible. It's a bit pricey but worth it for the quality. Highly recommend.",
+      "avatar": "/avatars/david.jpg"
+    },
+    {
+      "name": "Aisha B.",
+      "review": "Karibu chakula indeed! The hospitality is felt even through their delivery service. The food is always fresh and delicious. A true taste of the coast in Kilimani.",
+      "avatar": "/avatars/aisha.jpg"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Do you offer catering for events?",
+      "answer": "Yes, we do! We offer catering services for corporate events, parties, and family gatherings. Please contact us at least a week in advance to discuss your requirements."
+    },
+    {
+      "question": "What are your delivery hours and areas?",
+      "answer": "We deliver daily from 10:00am to 9:30pm within a 10km radius of our Kilimani kitchen. Delivery fees vary based on location."
+    },
+    {
+      "question": "Are there vegetarian/vegan options available?",
+      "answer": "Absolutely. We have a variety of delicious vegetarian and vegan dishes, including our popular coconut bean curry and vegetable samosas. Check our menu for the full list."
+    },
+    {
+      "question": "How is the food packaged for delivery?",
+      "answer": "We use eco-friendly, insulated packaging to ensure your food arrives hot, fresh, and ready to eat, while also being kind to the environment."
+    },
+    {
+      "question": "Can I make a reservation to dine in?",
+      "answer": "Currently, we are a delivery-only kitchen. We do not have a dine-in space. You can enjoy our authentic Swahili cuisine from the comfort of your home or office."
+    }
+  ]
+}

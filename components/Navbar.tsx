@@ -2,18 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ShoppingBag } from "lucide-react";
-import { useCart } from "@/lib/cart-context";
 
 const NAV_LINKS = [
   { to: "/", label: "Home" },
   { to: "/menu", label: "Menu" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
+  { to: "/reservations", label: "Reservations" }
 ] as const;
 
 export function Navbar() {
-  const { itemCount, openCart } = useCart();
   const pathname = usePathname();
 
   return (
@@ -27,7 +25,7 @@ export function Navbar() {
         </Link>
 
         <nav className="flex shrink-0 items-center gap-0.5 sm:gap-1">
-          {NAV_LINKS.map(({ to, label }) => {
+          {NAV_LINKS.map(({ to, label }, index) => {
             const active = to === "/" ? pathname === "/" : pathname.startsWith(to);
             return (
               <Link
@@ -43,18 +41,6 @@ export function Navbar() {
               </Link>
             );
           })}
-          <button
-            onClick={openCart}
-            aria-label={`Open cart, ${itemCount} items`}
-            className="relative ml-1 grid h-11 w-11 place-items-center rounded-full bg-orange-500 text-white shadow-sm transition-all hover:bg-orange-600 hover:shadow-md active:scale-95"
-          >
-            <ShoppingBag size={20} />
-            {itemCount > 0 && (
-              <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-red-700 px-1 text-[11px] font-bold text-white">
-                {itemCount}
-              </span>
-            )}
-          </button>
         </nav>
       </div>
     </header>

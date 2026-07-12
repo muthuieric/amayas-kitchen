@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { Download } from "lucide-react";
 import { useState } from "react";
 import { CATEGORIES, MENU_ITEMS, type Category } from "@/lib/menu-data";
 import { ProductCard } from "./ProductCard";
@@ -14,10 +16,24 @@ export function MenuSection() {
   return (
     <section id="menu" className="scroll-mt-16 bg-gray-50">
       <div className="mx-auto max-w-6xl px-4 pt-14 sm:px-6">
-        <span className="text-xs font-bold uppercase tracking-widest text-red-700">Our Menu</span>
-        <h2 className="mt-2 font-black tracking-tight text-slate-900 sm:text-4xl">
-          Made Fresh, Every Day
-        </h2>
+        <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-widest text-red-700">
+              Our Menu
+            </span>
+            <h2 className="mt-2 font-black tracking-tight text-slate-900 sm:text-4xl">
+              Made Fresh, Every Day
+            </h2>
+          </div>
+          <Link
+            href="/menu.pdf"
+            target="_blank"
+            className="inline-flex items-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-bold text-white shadow-lg transition-all hover:scale-105 hover:bg-orange-600 active:scale-95"
+          >
+            <Download size={18} />
+            Download Full Menu (PDF)
+          </Link>
+        </div>
       </div>
 
       {/* Sticky horizontal category filter */}

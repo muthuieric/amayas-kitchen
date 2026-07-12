@@ -1,14 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { Flame, Plus } from "lucide-react";
-import { useCart } from "@/lib/cart-context";
-import { formatKes } from "@/lib/format";
+import { Flame } from "lucide-react";
 import type { Product } from "@/lib/menu-data";
 
 export function ProductCard({ product }: { product: Product }) {
-  const { addItem } = useCart();
-
   return (
 <div className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all hover:shadow-md border border-gray-100">
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-shadow hover:shadow-xl">
@@ -40,17 +36,6 @@ export function ProductCard({ product }: { product: Product }) {
         <p className="mt-1 flex-1 text-sm leading-relaxed text-slate-600">
           {product.description}
         </p>
-        <div className="mt-4 flex items-center justify-between gap-3">
-          <span className="min-w-0 text-lg font-black text-red-700">
-            {formatKes(product.price)}
-          </span>
-          <button
-            onClick={() => addItem(product)}
-            className="flex shrink-0 items-center gap-1.5 rounded-xl bg-orange-500 px-4 py-2.5 text-sm font-bold text-white shadow-lg transition-all hover:scale-105 hover:bg-orange-600 active:scale-95"
-          >
-            <Plus size={16} /> Add to Cart
-          </button>
-        </div>
       </div>
     </article>
     </div>

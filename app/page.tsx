@@ -5,6 +5,8 @@ import { ArrowRight, Flame, UtensilsCrossed } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { CATEGORIES, MENU_ITEMS, type Category } from "@/lib/menu-data";
 import { formatKes } from "@/lib/format";
+import { Reviews } from "@/components/Reviews";
+import { Faq } from "@/components/Faq";
 
 export const metadata = {
   title: "Amaya's Swahili Kitchen - Authentic Coastal Food, Kilimani",
@@ -130,6 +132,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Reviews />
+      <Faq />
     </>
   );
 }
