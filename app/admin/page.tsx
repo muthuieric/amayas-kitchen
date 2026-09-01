@@ -23,13 +23,14 @@ type Reservation = {
   guests: number;
 };
 
+// This line was accidentally deleted in your version!
 function AdminDashboard({ reservations }: { reservations: Reservation[] }) {
   const [photoState, photoFormAction] = useFormState(uploadPhoto, {
-    message: null,
+    message: "",
   });
 
   const [passwordState, passwordFormAction] = useFormState(updatePassword, {
-    message: null,
+    message: "",
   });
 
   return (
@@ -100,11 +101,4 @@ export default function AdminPage() {
   }, []);
 
   return <AdminDashboard reservations={reservations} />;
-}absContent>
-        <TabsContent value="settings">
-          <p>Admin Settings</p>
-        </TabsContent>
-      </Tabs>
-    </div>
-  );
 }

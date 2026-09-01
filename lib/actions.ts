@@ -27,7 +27,7 @@ const reservationSchema = z.object({
   guests: z.coerce.number().min(1, "At least one guest is required"),
 });
 
-export async function createReservation(formData: FormData) {
+export async function createReservation(prevState: any, formData: FormData) {
   const validatedFields = reservationSchema.safeParse({
     name: formData.get("name"),
     date: formData.get("date"),

@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { login } from "@/lib/actions";
 
 const initialState = {
-  message: null,
+  message: "",
 };
 
 export default function LoginPage() {

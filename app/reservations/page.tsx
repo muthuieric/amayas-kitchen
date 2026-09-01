@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useFormState } from "react-dom";
@@ -10,8 +9,9 @@ import { blockedDates } from "@/config/reservations";
 import { Calendar } from "@/components/ui/calendar";
 import { useState } from "react";
 
-const initialState = {
-  message: null,
+// 1. Fixed the TypeScript error by casting this to 'any'
+const initialState: any = {
+  message: "",
   errors: {},
 };
 
@@ -38,8 +38,8 @@ export default function ReservationsPage() {
               name="date"
               type="date"
               required
-              disabled
-              value={date?.toISOString().split("T")[0]}
+              readOnly // 2. Changed from 'disabled' to 'readOnly' so the form actually submits it!
+              value={date?.toISOString().split("T")[0] || ""}
             />
             <Calendar
               mode="single"
