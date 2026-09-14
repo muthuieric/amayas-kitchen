@@ -15,10 +15,10 @@ export const metadata = {
 };
 
 const CATEGORY_TAGLINES: Record<Category, string> = {
-  "Swahili Classics": "Pilau, biryani, coconut curries",
-  Grills: "Mshikaki, kuku choma & wet fries",
-  Sides: "Chapati, viazi karai, kachumbari",
-  "Sweets & Chai": "Mahamri, kaimati & spiced chai",
+  "Swahili Classics": "Pilau, biryani & curries",
+  Grills: "Mshikaki & kuku choma",
+  Sides: "Chapati & viazi karai",
+  "Sweets & Chai": "Mahamri & spiced chai",
 };
 
 export default function HomePage() {
@@ -28,32 +28,34 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
         <div className="flex items-end justify-between gap-4">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-accent">
               Browse the Kitchen
             </span>
-            <h2 className="mt-2 font-display text-3xl font-black sm:text-4xl">
+            <h2 className="mt-1 font-display text-2xl font-black sm:text-3xl md:text-4xl">
               Featured Categories
             </h2>
           </div>
           <Link
             href="/menu"
-            className="hidden shrink-0 items-center gap-1 text-sm font-bold text-accent hover:underline sm:inline-flex"
+            className="shrink-0 inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-accent hover:underline"
           >
-            Full menu <ArrowRight size={16} />
+            <span>Full menu</span>
+            <ArrowRight size={15} />
           </Link>
         </div>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {/* 2-column on mobile, 4-column on desktop */}
+        <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           {CATEGORIES.map((cat) => {
             const sample = MENU_ITEMS.find((i) => i.category === cat);
             return (
               <Link
                 key={cat}
                 href="/menu"
-                className="group relative overflow-hidden rounded-2xl bg-card shadow-card transition-all hover:-translate-y-1 hover:shadow-lifted"
+                className="group relative overflow-hidden rounded-2xl bg-card shadow-card transition-all hover:-translate-y-1 hover:shadow-lifted active:scale-98"
               >
                 {sample && (
                   <div className="relative aspect-[4/3] overflow-hidden">
@@ -61,15 +63,19 @@ export default function HomePage() {
                       src={sample.image}
                       alt={cat}
                       fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      sizes="(min-width: 1024px) 25vw, 50vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/25 to-transparent" />
                   </div>
                 )}
-                <div className="absolute inset-x-0 bottom-0 p-4">
-                  <p className="font-display text-lg font-black text-primary-foreground">{cat}</p>
-                  <p className="text-xs text-primary-foreground/80">{CATEGORY_TAGLINES[cat]}</p>
+                <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
+                  <p className="font-display text-sm sm:text-base md:text-lg font-black text-primary-foreground leading-tight">
+                    {cat}
+                  </p>
+                  <p className="mt-0.5 text-[11px] sm:text-xs text-primary-foreground/80 line-clamp-1">
+                    {CATEGORY_TAGLINES[cat]}
+                  </p>
                 </div>
               </Link>
             );
@@ -78,16 +84,18 @@ export default function HomePage() {
       </section>
 
       <section className="border-t bg-secondary/40">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
           <div className="flex items-center gap-2">
             <Flame size={18} className="text-primary" />
             <span className="text-xs font-bold uppercase tracking-widest text-accent">
               Signature Dishes
             </span>
           </div>
-          <h2 className="mt-2 font-display text-3xl font-black sm:text-4xl">Most-loved this week</h2>
+          <h2 className="mt-1 font-display text-2xl font-black sm:text-3xl md:text-4xl">
+            Most-loved this week
+          </h2>
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 sm:mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
             {featured.map((p) => (
               <article
                 key={p.id}
@@ -102,18 +110,21 @@ export default function HomePage() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <h3 className="font-display text-lg font-black">{p.name}</h3>
-                  <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{p.description}</p>
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="font-display text-xl font-black text-accent">
+                <div className="flex flex-1 flex-col p-4 sm:p-5">
+                  <h3 className="font-display text-base sm:text-lg font-black">{p.name}</h3>
+                  <p className="mt-1 line-clamp-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    {p.description}
+                  </p>
+                  <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-3.5">
+                    <span className="font-display text-lg sm:text-xl font-black text-accent">
                       {formatKes(p.price)}
                     </span>
                     <Link
                       href="/menu"
-                      className="inline-flex items-center gap-1 rounded-lg bg-foreground px-3 py-2 text-xs font-bold text-background transition-colors hover:bg-foreground/90"
+                      className="inline-flex min-h-[38px] items-center gap-1 rounded-xl bg-foreground px-3.5 py-2 text-xs font-bold text-background transition-colors hover:bg-foreground/90 active:scale-95"
                     >
-                      View in Menu <ArrowRight size={13} />
+                      <span>View in Menu</span>
+                      <ArrowRight size={13} />
                     </Link>
                   </div>
                 </div>
@@ -121,13 +132,13 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="mt-10 flex justify-center">
+          <div className="mt-8 sm:mt-10 flex justify-center">
             <Link
               href="/menu"
-              className="inline-flex items-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-base font-bold text-primary-foreground shadow-card transition-all hover:bg-primary-hover hover:shadow-lifted active:scale-95"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-base font-bold text-primary-foreground shadow-card transition-all hover:bg-primary-hover hover:shadow-lifted active:scale-95"
             >
               <UtensilsCrossed size={18} />
-              See the Full Menu
+              <span>See the Full Menu</span>
             </Link>
           </div>
         </div>

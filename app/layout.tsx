@@ -1,15 +1,19 @@
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Inter } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CartDrawer } from "@/components/CartDrawer";
 import { CartProvider } from "@/lib/cart-context";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata = {
+export const metadata: Metadata = {
   title: "Amaya's Swahili Kitchen",
   description: "Authentic Coastal Flavors in the Heart of Kilimani",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -19,7 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-50 text-slate-900 flex flex-col min-h-screen`}>
+      <body
+        className="font-sans bg-gray-50 text-slate-900 flex flex-col min-h-screen overflow-x-hidden antialiased"
+      >
         <CartProvider>
           <Navbar />
           <main className="flex-grow">{children}</main>

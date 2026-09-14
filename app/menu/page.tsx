@@ -12,13 +12,13 @@ export const metadata = {
 
 export default function MenuPage() {
   return (
-    <div className="pt-6">
+    <div className="pt-6 sm:pt-8">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <span className="text-xs font-bold uppercase tracking-widest text-accent">The Menu</span>
-        <h1 className="mt-2 font-display text-4xl font-black sm:text-5xl">
+        <h1 className="mt-2 font-display text-3xl font-black sm:text-5xl">
           Every dish, made fresh
         </h1>
-        <p className="mt-3 max-w-xl text-muted-foreground">
+        <p className="mt-2.5 max-w-xl text-sm sm:text-base text-muted-foreground">
           Tap any dish to add it to your cart, then check out on WhatsApp for delivery to your
           location.
         </p>
