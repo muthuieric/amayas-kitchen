@@ -28,9 +28,14 @@ export interface Product {
   description: string;
   price: number; // KES
   category: Category;
-  image: string | StaticImageData; // Will be a Cloudflare R2 https:// URL after integration
+  image: string | StaticImageData;
   spicy?: boolean;
   popular?: boolean;
+  vegetarian?: boolean;
+  spiceLevel?: 0 | 1 | 2 | 3; // 0 = Mild/Sweet, 1 = Gentle Warmth, 2 = Medium Coastal Kick, 3 = Pili Pili Fire
+  portion?: string;
+  ingredients?: string[];
+  prepTime?: string;
 }
 
 export const WHATSAPP_NUMBER = "254712345678"; // TODO: replace with the real number
@@ -44,6 +49,10 @@ export const MENU_ITEMS: Product[] = [
     category: "Swahili Classics",
     image: dishPilau,
     popular: true,
+    spiceLevel: 1,
+    portion: "Serves 1",
+    prepTime: "15-20 mins",
+    ingredients: ["Aromatic Basmati Rice", "Prime Kenyan Beef", "Cardamom & Cloves", "Cumin & Cinnamon", "Fresh Kachumbari Salad"],
   },
   {
     id: "biryani",
@@ -53,6 +62,10 @@ export const MENU_ITEMS: Product[] = [
     category: "Swahili Classics",
     image: dishBiryani,
     popular: true,
+    spiceLevel: 2,
+    portion: "Serves 1-2",
+    prepTime: "20 mins",
+    ingredients: ["Long-grain Saffron Rice", "Spiced Chicken Masala", "Caramelized Crispy Onions", "Boiled Egg", "Fresh Coriander"],
   },
   {
     id: "mbuzi-wet-fry",
@@ -62,6 +75,10 @@ export const MENU_ITEMS: Product[] = [
     category: "Swahili Classics",
     image: dishMbuzi,
     spicy: true,
+    spiceLevel: 2,
+    portion: "Serves 1-2",
+    prepTime: "20-25 mins",
+    ingredients: ["Tender Kenyan Goat", "Red Onions", "Sun-ripened Tomatoes", "Garlic & Ginger", "Fresh Dhania (Coriander)"],
   },
   {
     id: "samaki-wa-kupaka",
@@ -71,6 +88,10 @@ export const MENU_ITEMS: Product[] = [
     category: "Swahili Classics",
     image: dishSamaki,
     spicy: true,
+    spiceLevel: 2,
+    portion: "Serves 1-2 (Whole Fish)",
+    prepTime: "25-30 mins",
+    ingredients: ["Whole Red Snapper", "Fresh Coastal Coconut Cream", "Tamarind (Ukwaju)", "Turmeric", "Crushed Chili"],
   },
   {
     id: "mshikaki",
@@ -81,6 +102,10 @@ export const MENU_ITEMS: Product[] = [
     image: dishMshikaki,
     spicy: true,
     popular: true,
+    spiceLevel: 2,
+    portion: "3 Skewers",
+    prepTime: "15 mins",
+    ingredients: ["Beef Steak Cubes", "Papaya Tenderizer", "Garlic & Ginger", "Charcoal Smoke", "Fresh Key Lime"],
   },
   {
     id: "kuku-choma",
@@ -89,6 +114,10 @@ export const MENU_ITEMS: Product[] = [
     price: 850,
     category: "Grills",
     image: dishKuku,
+    spiceLevel: 2,
+    portion: "Half Chicken",
+    prepTime: "25 mins",
+    ingredients: ["Country Chicken", "Coastal Pili Pili Glaze", "Lemon Juice", "Rock Salt & Crushed Pepper"],
   },
   {
     id: "chapati",
@@ -97,6 +126,11 @@ export const MENU_ITEMS: Product[] = [
     price: 100,
     category: "Sides",
     image: dishChapati,
+    vegetarian: true,
+    spiceLevel: 0,
+    portion: "2 Large Chapatis",
+    prepTime: "10 mins",
+    ingredients: ["Wheat Flour", "Pure Ghee Layers", "Warm Water & Pinch of Salt"],
   },
   {
     id: "viazi-karai",
@@ -105,6 +139,11 @@ export const MENU_ITEMS: Product[] = [
     price: 250,
     category: "Sides",
     image: dishViazi,
+    vegetarian: true,
+    spiceLevel: 1,
+    portion: "1 Bowl",
+    prepTime: "12 mins",
+    ingredients: ["Boiled Irish Potatoes", "Crisp Turmeric & Gram Batter", "Homemade Tamarind Sauce (Ukwaju)"],
   },
   {
     id: "mahamri",
@@ -113,6 +152,11 @@ export const MENU_ITEMS: Product[] = [
     price: 300,
     category: "Sweets & Chai",
     image: dishMahamri,
+    vegetarian: true,
+    spiceLevel: 0,
+    portion: "4 Mahamri + Chai Pot",
+    prepTime: "10 mins",
+    ingredients: ["Coconut Milk Dough", "Aromatic Green Cardamom", "Yeast & Light Sugar", "Coastal Spiced Tea"],
   },
 ];
 

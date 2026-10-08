@@ -3,6 +3,8 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CartDrawer } from "@/components/CartDrawer";
+import { MobileOrderBar } from "@/components/MobileOrderBar";
+import { Chatbot } from "@/components/Chatbot";
 import { CartProvider } from "@/lib/cart-context";
 
 export const metadata: Metadata = {
@@ -31,6 +33,8 @@ export default function RootLayout({
           <main className="flex-grow">{children}</main>
           <Footer />
           <CartDrawer />
+          <MobileOrderBar />
+          <Chatbot />
         </CartProvider>
       </body>
     </html>
