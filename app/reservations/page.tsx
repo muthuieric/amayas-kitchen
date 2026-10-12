@@ -63,7 +63,10 @@ export default function ReservationsPage() {
   // If successfully booked
   if (state?.success && state?.data) {
     const booking = state.data;
-    const whatsappMsg = `Habari Amaya's! 🍽️ I just booked a table on your website:\n• Ref: ${booking.bookingRef}\n• Name: ${booking.name}\n• Date: ${booking.date}\n• Time: ${booking.time}\n• Party: ${booking.guests} Guests\n• Seating: ${booking.seatingZone}\n\nPlease confirm my reservation!`;
+    const specialLine = booking.specialRequests
+      ? `\n• Notes: ${booking.specialRequests}`
+      : "";
+    const whatsappMsg = `Habari Amaya's! 🍽️ New table reservation from your website:\n• Ref: ${booking.bookingRef}\n• Name: ${booking.name}\n• Phone: ${booking.phone}\n• Date: ${booking.date}\n• Time: ${booking.time}\n• Party: ${booking.guests} Guests\n• Seating: ${booking.seatingZone}${specialLine}\n\nPlease confirm my reservation!`;
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMsg)}`;
 
     return (

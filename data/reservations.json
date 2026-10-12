@@ -1,0 +1,15 @@
+[
+  {
+    "id": "res_1791846597210_untqi",
+    "bookingRef": "AK-4191",
+    "name": "Eric Muthui",
+    "phone": "0706123513",
+    "date": "2026-10-12",
+    "time": "19:00",
+    "guests": 2,
+    "seatingZone": "Courtyard",
+    "specialRequests": "Birthday",
+    "status": "confirmed",
+    "createdAt": "2026-10-12T23:09:57.210Z"
+  }
+]

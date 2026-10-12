@@ -4,6 +4,7 @@ import { z } from "zod";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import bcrypt from "bcrypt";
+import { addReservation } from "./reservations-store";
 
 const dummyReservations = [
   {
@@ -22,32 +23,62 @@ const dummyReservations = [
 
 const reservationSchema = z.object({
   name: z.string().min(1, "Name is required"),
+  phone: z.string().optional(),
   date: z.string().min(1, "Date is required"),
   time: z.string().min(1, "Time is required"),
   guests: z.coerce.number().min(1, "At least one guest is required"),
+  seatingZone: z.string().optional(),
+  specialRequests: z.string().optional(),
 });
 
 export async function createReservation(prevState: any, formData: FormData) {
   const validatedFields = reservationSchema.safeParse({
     name: formData.get("name"),
+    phone: formData.get("phone"),
     date: formData.get("date"),
     time: formData.get("time"),
     guests: formData.get("guests"),
+    seatingZone: formData.get("seatingZone"),
+    specialRequests: formData.get("specialRequests"),
   });
 
   if (!validatedFields.success) {
     return {
+      success: false,
+      message: "Please fix the errors below.",
       errors: validatedFields.error.flatten().fieldErrors,
     };
   }
 
-  // TODO: Check if the requested Date/Time already exists in the Reservation table.
-  // TODO: If it exists, return an error: 'This time slot is already booked.'
-  // TODO: If it's free, save it to the PostgreSQL database.
+  const { name, phone, date, time, guests, seatingZone, specialRequests } =
+    validatedFields.data;
 
-  return {
-    message: "Reservation created successfully!",
-  };
+  try {
+    const reservation = await addReservation({
+      name,
+      phone,
+      date,
+      time,
+      guests,
+      seatingZone,
+      specialRequests,
+    });
+
+    return {
+      success: true,
+      message: "Reservation created successfully!",
+      data: reservation,
+      errors: {},
+    };
+  } catch (error) {
+    console.error("Failed to save reservation:", error);
+    return {
+      success: false,
+      message:
+        "Sorry, something went wrong while saving your reservation. Please try again.",
+      errors: {},
+    };
+  }
 }
 
 export async function getReservations() {

@@ -1,0 +1,32 @@
+{
+  // Prevent VS Code's file watcher + search indexer from exhausting RAM
+  // while `next dev` runs. `.next`, `node_modules` and the large `public`
+  // JPEGs are the main memory hogs on low-RAM machines.
+  "files.watcherExclude": {
+    "**/.next/**": true,
+    "**/node_modules/**": true,
+    "**/.git/objects/**": true,
+    "**/.git/submodules/**": true,
+    "**/public/*.jpg": true,
+    "**/*.tsbuildinfo": true,
+    "**/dist/**": true
+  },
+  "search.exclude": {
+    "**/.next": true,
+    "**/node_modules": true,
+    "**/*.tsbuildinfo": true,
+    "**/package-lock.json": true
+  },
+  "files.exclude": {
+    "**/.next": true
+  },
+  // Reduce TypeScript server memory pressure and background type work.
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.preferences.includePackageJsonAutoImports": "off",
+  "typescript.tsserver.maxTsServerMemory": 2560,
+  "typescript.tsserver.watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "dynamicPriorityPolling"
+  }
+}
