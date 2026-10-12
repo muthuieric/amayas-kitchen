@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Flame, Heart, Leaf, Soup } from "lucide-react";
 
-import heroImage from "@/assets/hero-swahili.jpg";
-
 export const metadata = {
   title: "Our Story - Amaya's Swahili Kitchen",
   description:
@@ -37,7 +35,7 @@ export default function AboutPage() {
     <>
       <section className="relative overflow-hidden border-b">
         <Image
-          src={heroImage}
+          src="/amaya-10.jpg"
           alt=""
           aria-hidden="true"
           fill

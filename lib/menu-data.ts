@@ -8,16 +8,8 @@
  *   (standard https:// links) once the image pipeline is connected.
  */
 
-import dishPilau from "@/assets/dish-pilau.jpg";
-import dishBiryani from "@/assets/dish-biryani.jpg";
-import dishMbuzi from "@/assets/dish-mbuzi.jpg";
-import dishSamaki from "@/assets/dish-samaki.jpg";
-import dishMshikaki from "@/assets/dish-mshikaki.jpg";
-import dishKuku from "@/assets/dish-kuku.jpg";
-import dishChapati from "@/assets/dish-chapati.jpg";
-import dishViazi from "@/assets/dish-viazi.jpg";
-import dishMahamri from "@/assets/dish-mahamri.jpg";
-import type { StaticImageData } from "next/image";
+// Dish photos are the restaurant's own images, served from /public as amaya-01.jpg … amaya-09.jpg.
+// (Replaces the previous AI-generated @/assets/dish-*.jpg images.)
 
 export const CATEGORIES = ["Swahili Classics", "Grills", "Sides", "Sweets & Chai"] as const;
 export type Category = (typeof CATEGORIES)[number];
@@ -28,7 +20,7 @@ export interface Product {
   description: string;
   price: number; // KES
   category: Category;
-  image: string | StaticImageData;
+  image: string;
   spicy?: boolean;
   popular?: boolean;
   vegetarian?: boolean;
@@ -47,7 +39,7 @@ export const MENU_ITEMS: Product[] = [
     description: "Fragrant spiced rice slow-cooked with tender beef, cardamom & cloves. Served with kachumbari.",
     price: 800,
     category: "Swahili Classics",
-    image: dishPilau,
+    image: "/amaya-01.jpg",
     popular: true,
     spiceLevel: 1,
     portion: "Serves 1",
@@ -60,7 +52,7 @@ export const MENU_ITEMS: Product[] = [
     description: "Layered saffron rice with succulent chicken, crispy onions & fresh coriander.",
     price: 950,
     category: "Swahili Classics",
-    image: dishBiryani,
+    image: "/amaya-02.jpg",
     popular: true,
     spiceLevel: 2,
     portion: "Serves 1-2",
@@ -73,7 +65,7 @@ export const MENU_ITEMS: Product[] = [
     description: "Tender goat simmered in a rich tomato-onion gravy, finished with fresh dhania.",
     price: 700,
     category: "Swahili Classics",
-    image: dishMbuzi,
+    image: "/amaya-03.jpg",
     spicy: true,
     spiceLevel: 2,
     portion: "Serves 1-2",
@@ -86,7 +78,7 @@ export const MENU_ITEMS: Product[] = [
     description: "Whole grilled fish smothered in creamy coconut curry — a true coastal treasure.",
     price: 1200,
     category: "Swahili Classics",
-    image: dishSamaki,
+    image: "/amaya-04.jpg",
     spicy: true,
     spiceLevel: 2,
     portion: "Serves 1-2 (Whole Fish)",
@@ -99,7 +91,7 @@ export const MENU_ITEMS: Product[] = [
     description: "Char-grilled beef skewers marinated overnight in coastal spices, with lime & onions.",
     price: 450,
     category: "Grills",
-    image: dishMshikaki,
+    image: "/amaya-05.jpg",
     spicy: true,
     popular: true,
     spiceLevel: 2,
@@ -113,7 +105,7 @@ export const MENU_ITEMS: Product[] = [
     description: "Flame-grilled half chicken brushed with our signature pili pili marinade.",
     price: 850,
     category: "Grills",
-    image: dishKuku,
+    image: "/amaya-06.jpg",
     spiceLevel: 2,
     portion: "Half Chicken",
     prepTime: "25 mins",
@@ -125,7 +117,7 @@ export const MENU_ITEMS: Product[] = [
     description: "Soft, flaky, hand-rolled layers — golden brown and made to order.",
     price: 100,
     category: "Sides",
-    image: dishChapati,
+    image: "/amaya-07.jpg",
     vegetarian: true,
     spiceLevel: 0,
     portion: "2 Large Chapatis",
@@ -138,7 +130,7 @@ export const MENU_ITEMS: Product[] = [
     description: "Golden turmeric-battered potatoes, deep-fried & served with tangy ukwaju sauce.",
     price: 250,
     category: "Sides",
-    image: dishViazi,
+    image: "/amaya-08.jpg",
     vegetarian: true,
     spiceLevel: 1,
     portion: "1 Bowl",
@@ -151,7 +143,7 @@ export const MENU_ITEMS: Product[] = [
     description: "Pillowy coconut-cardamom doughnuts paired with spiced Swahili chai.",
     price: 300,
     category: "Sweets & Chai",
-    image: dishMahamri,
+    image: "/amaya-09.jpg",
     vegetarian: true,
     spiceLevel: 0,
     portion: "4 Mahamri + Chai Pot",
