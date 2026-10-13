@@ -34,9 +34,7 @@ const showcaseImage = "/amaya-07.jpg";
     <>
       <Hero />
 
-      {/* Dine In / Get It Delivered — Uber Eats, Bolt Food, Glovo */}
-      <OrderDelivery />
-
+      
       {/* NEW SECTION: The Amaya Experience */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -84,6 +82,9 @@ const showcaseImage = "/amaya-07.jpg";
 
         </div>
       </section>
+
+{/* Dine In / Get It Delivered — Uber Eats, Bolt Food, Glovo */}
+      <OrderDelivery />
 
       <Reviews />
       <Faq />
