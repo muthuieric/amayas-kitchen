@@ -7,7 +7,6 @@ import {
   Calendar as CalendarIcon,
   CheckCircle2,
   Clock,
-  Compass,
   MapPin,
   Minus,
   PartyPopper,
@@ -22,28 +21,9 @@ import { Label } from "@/components/ui/label";
 import { Calendar } from "@/components/ui/calendar";
 import { createReservation } from "@/lib/actions";
 import { blockedDates } from "@/config/reservations";
-import { WHATSAPP_NUMBER } from "@/lib/menu-data";
 
 const LUNCH_SLOTS = ["12:00", "12:30", "13:00", "13:30", "14:00"];
 const DINNER_SLOTS = ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00"];
-
-const SEATING_ZONES = [
-  {
-    id: "Courtyard",
-    name: "🌿 Coastal Courtyard",
-    desc: "Open-air garden breeze & coastal ambiance",
-  },
-  {
-    id: "Lounge",
-    name: "🛋️ Spice Lounge",
-    desc: "Intimate indoor booths & warm lighting",
-  },
-  {
-    id: "ChefTable",
-    name: "👨‍🍳 Chef's Window",
-    desc: "View of flame grills & live cooking",
-  },
-];
 
 const initialState: any = {
   message: "",
@@ -55,7 +35,6 @@ export default function ReservationsPage() {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [selectedTime, setSelectedTime] = useState<string>("19:00");
   const [guests, setGuests] = useState<number>(2);
-  const [seatingZone, setSeatingZone] = useState<string>("Courtyard");
   const [occasion, setOccasion] = useState<string>("Casual Dining");
 
   const formattedDate = date ? date.toISOString().split("T")[0] : "";
@@ -64,19 +43,18 @@ export default function ReservationsPage() {
   if (state?.success && state?.data) {
     const booking = state.data;
     const specialLine = booking.specialRequests
-      ? `\n• Notes: ${booking.specialRequests}`
+      ? `\nNotes: \n${booking.specialRequests}`
       : "";
-    const whatsappMsg = `Habari Amaya's! 🍽️ New table reservation from your website:\n• Ref: ${booking.bookingRef}\n• Name: ${booking.name}\n• Phone: ${booking.phone}\n• Date: ${booking.date}\n• Time: ${booking.time}\n• Party: ${booking.guests} Guests\n• Seating: ${booking.seatingZone}${specialLine}\n\nPlease confirm my reservation!`;
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMsg)}`;
+      
+    // Removed seatingZone from the WhatsApp Message
+    const whatsappMsg = `Habari Amaya's! 🍽️ New table reservation from your website:\nRef: ${booking.bookingRef}\nName: ${booking.name}\nPhone: ${booking.phone}\nDate: ${booking.date}\nTime: ${booking.time}\nParty: ${booking.guests} Guests${specialLine}\n\nPlease confirm my reservation!`;
+    const whatsappUrl = `https://wa.me/254718414667?text=${encodeURIComponent(whatsappMsg)}`;
 
     return (
       <div className="mx-auto max-w-xl px-4 py-12 sm:px-6 sm:py-20 animate-in fade-in zoom-in-95 duration-300">
-        <div className="rounded-3xl border border-emerald-200 bg-white p-6 sm:p-10 text-center shadow-xl">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 mb-5">
-            <CheckCircle2 size={36} />
-          </div>
+        <div className="rounded-3xl border border-orange-500 bg-white p-6 sm:p-10 text-center shadow-xl">
 
-          <span className="inline-block rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-xs font-bold text-emerald-800">
+          <span className="inline-block rounded-full bg-orange-500 border border-orange-500 px-3 py-1 text-xs font-bold text-white">
             Booking Confirmed • Ref #{booking.bookingRef}
           </span>
 
@@ -101,10 +79,6 @@ export default function ReservationsPage() {
               <span className="text-slate-500">Party Size</span>
               <span className="font-bold text-slate-900">{booking.guests} Guests</span>
             </div>
-            <div className="flex justify-between py-2">
-              <span className="text-slate-500">Seating Area</span>
-              <span className="font-bold text-orange-700">{booking.seatingZone}</span>
-            </div>
           </div>
 
           {/* Actions */}
@@ -113,16 +87,11 @@ export default function ReservationsPage() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full min-h-[48px] items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm sm:text-base font-bold text-white shadow-sm hover:bg-[#128C7E] transition-all"
+              className="flex w-full min-h-[44px] items-center justify-center gap-2 rounded-xl bg-orange-500 px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-orange-600 transition-all"
             >
               <span>Confirm Instant Booking via WhatsApp</span>
             </Link>
-            <Link
-              href="/menu"
-              className="flex w-full min-h-[44px] items-center justify-center gap-2 rounded-xl bg-orange-500 px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-orange-600 transition-all"
-            >
-              <span>Explore The Menu In Advance</span>
-            </Link>
+         
           </div>
         </div>
       </div>
@@ -152,7 +121,6 @@ export default function ReservationsPage() {
         <input type="hidden" name="date" value={formattedDate} />
         <input type="hidden" name="time" value={selectedTime} />
         <input type="hidden" name="guests" value={guests} />
-        <input type="hidden" name="seatingZone" value={seatingZone} />
 
         {/* 1. Guest Party Size Stepper & Quick Pills */}
         <div className="space-y-3">
@@ -297,32 +265,7 @@ export default function ReservationsPage() {
           )}
         </div>
 
-        {/* 4. Seating Zone Preference */}
-        <div className="space-y-3">
-          <Label className="text-sm font-bold text-slate-900 flex items-center gap-2">
-            <Compass size={16} className="text-orange-600" />
-            <span>Seating Preference</span>
-          </Label>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-            {SEATING_ZONES.map((zone) => (
-              <button
-                key={zone.id}
-                type="button"
-                onClick={() => setSeatingZone(zone.id)}
-                className={`flex flex-col items-start p-3 rounded-2xl border text-left transition-all ${
-                  seatingZone === zone.id
-                    ? "border-orange-500 bg-orange-50/60 ring-1 ring-orange-500"
-                    : "border-gray-200 bg-white hover:border-gray-300"
-                }`}
-              >
-                <span className="font-bold text-xs sm:text-sm text-slate-900">{zone.name}</span>
-                <span className="mt-1 text-[11px] text-slate-500 leading-tight">{zone.desc}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* 5. Contact Details */}
+        {/* 4. Contact Details */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
           <div className="space-y-1.5">
             <Label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-slate-500">
@@ -379,7 +322,7 @@ export default function ReservationsPage() {
           type="submit"
           className="w-full min-h-[50px] rounded-2xl bg-orange-500 hover:bg-orange-600 active:scale-98 text-white font-bold text-base shadow-sm transition-all"
         >
-          Confirm Reservation for {guests} {guests === 1 ? "Guest" : "Guests"}
+          Confirm for {guests} {guests === 1 ? "Guest" : "Guests"}
         </Button>
       </form>
     </div>

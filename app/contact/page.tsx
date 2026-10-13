@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Clock, Facebook, Instagram, MapPin, Navigation, Phone } from "lucide-react";
+import { Clock, Facebook, Instagram, MapPin, Phone, Navigation, ShoppingBag } from "lucide-react";
 
 export const metadata = {
   title: "Contact & Location - Amaya's Swahili Kitchen",
@@ -199,31 +199,102 @@ export default function ContactPage() {
                 </Link>
               </div>
 
-              <div className="mt-5 border-t border-gray-100 pt-4">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                  Follow the kitchen
-                </p>
-                <div className="mt-2.5 flex gap-2">
-                  <Link
-                    href="https://www.instagram.com/amayas.swahilikitchen/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                    className="grid h-11 w-11 place-items-center rounded-full bg-secondary text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground active:scale-95"
-                  >
-                    <Instagram size={18} />
-                  </Link>
-                  <Link
-                    href="https://www.facebook.com/p/Amayas-Swahili-Kitchen-61565742148330/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Facebook"
-                    className="grid h-11 w-11 place-items-center rounded-full bg-secondary text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground active:scale-95"
-                  >
-                    <Facebook size={18} />
-                  </Link>
-                </div>
-              </div>
+           
+           <div className="mt-5 border-t border-gray-100 pt-4">
+  <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+    Follow the kitchen
+  </p>
+  <div className="mt-2.5 flex flex-wrap gap-2">
+    <Link
+      href="https://www.instagram.com/amayas.swahilikitchen/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+      className="grid h-11 w-11 place-items-center rounded-full bg-secondary text-muted-foreground transition-colors hover:bg-orange-500 hover:text-white"
+    >
+      <Instagram size={18} />
+    </Link>
+    <Link
+      href="https://www.facebook.com/p/Amayas-Swahili-Kitchen-61565742148330/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Facebook"
+      className="grid h-11 w-11 place-items-center rounded-full bg-secondary text-muted-foreground transition-colors hover:bg-orange-500 hover:text-white"
+    >
+      <Facebook size={18} />
+    </Link>
+    <Link
+      href="https://www.tiktok.com/@amayas.swahilikitchen"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="TikTok"
+      className="grid h-11 w-11 place-items-center rounded-full bg-secondary text-muted-foreground transition-colors hover:bg-orange-500 hover:text-white"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.04-.1z" />
+      </svg>
+    </Link>
+  </div>
+</div>
+
+{/* New Order Online Section matching your styling */}
+<div className="mt-5 border-t border-gray-100 pt-4">
+  <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+    Order Online
+  </p>
+  <div className="mt-2.5 flex flex-wrap gap-2">
+    <Link
+      href="https://www.ubereats.com/ke/store/amayas-swahili-kitchen-kilimani/LrDdv1L2VEWm1mp3YvRDZA?srsltid=AU7gw4VhbRADd4aMudlizdbqU-lBFaXgxzpEFJpDgauVXm0BPkH7l72e"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex h-11 items-center gap-2 rounded-full bg-secondary px-4 text-xs font-medium text-muted-foreground transition-colors hover:bg-orange-500 hover:text-white"
+    >
+      <ShoppingBag size={16} />
+      Uber Eats
+    </Link>
+    <Link
+      href="https://food.bolt.eu/en/320-nairobi/p/91916-amayas-swahili-kitchen/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex h-11 items-center gap-2 rounded-full bg-secondary px-4 text-xs font-medium text-muted-foreground transition-colors hover:bg-orange-500 hover:text-white"
+    >
+      <ShoppingBag size={16} />
+      Bolt Food
+    </Link>
+    <Link
+      href="https://glovoapp.com/en/ke/nairobi/stores/amayas-swahili-kitchen-nbo?utm_medium=organic&utm_campaign=google_reserve_place_order_action&utm_source=google"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex h-11 items-center gap-2 rounded-full bg-secondary px-4 text-xs font-medium text-muted-foreground transition-colors hover:bg-orange-500 hover:text-white"
+    >
+      <ShoppingBag size={16} />
+      Glovo
+    </Link>
+  </div>
+</div>
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
             </div>
           </div>
         </div>

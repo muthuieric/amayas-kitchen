@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Flame, Heart, Leaf, Soup } from "lucide-react";
+import { Flame, Heart, Leaf, Soup,  MapPin } from "lucide-react";
 
 export const metadata = {
   title: "Our Story - Amaya's Swahili Kitchen",
@@ -110,21 +110,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 py-12 sm:py-16 text-center sm:px-6">
-        <Flame size={28} className="mx-auto text-primary" />
-        <h2 className="mt-3 font-display text-2xl font-black sm:text-3xl md:text-4xl">
-          Ready to taste the coast?
-        </h2>
-        <p className="mx-auto mt-2.5 max-w-lg text-sm sm:text-base text-muted-foreground">
-          Our full menu is ready - order in a few taps and we'll take care of the rest.
-        </p>
-        <Link
-          href="/menu"
-          className="mt-6 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-base font-bold text-primary-foreground shadow-card transition-all hover:bg-primary-hover hover:shadow-lifted active:scale-95"
-        >
-          Explore the Menu
-        </Link>
-      </section>
+  <section className="mx-auto max-w-4xl px-4 py-12 sm:py-16 text-center sm:px-6">
+  <MapPin size={28} className="mx-auto text-primary" />
+  <h2 className="mt-3 font-display text-2xl font-black sm:text-3xl md:text-4xl">
+    Come visit us in Kilimani
+  </h2>
+  <p className="mx-auto mt-2.5 max-w-lg text-sm sm:text-base text-muted-foreground">
+    Join us at Titan Complex, Chaka Road for authentic coastal cooking, warm hospitality, and the best vibes in Nairobi.
+  </p>
+  <Link
+    href="/contact"
+    className="mt-6 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-base font-bold text-primary-foreground shadow-card transition-all hover:bg-primary-hover hover:shadow-lifted active:scale-95"
+  >
+    Get Directions
+  </Link>
+</section>
     </>
   );
 }

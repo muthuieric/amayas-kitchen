@@ -28,7 +28,7 @@
     },
     {
       "question": "What are your delivery hours and areas?",
-      "answer": "We deliver daily from 9:00am to 9:00pm within a 10km radius of our Kilimani kitchen. Delivery fees vary based on location."
+      "answer": "We deliver daily from 9:00am to 9:00pm. Delivery fees vary based on location."
     },
     {
       "question": "Are there vegetarian/vegan options available?",
@@ -37,10 +37,6 @@
     {
       "question": "How is the food packaged for delivery?",
       "answer": "We use eco-friendly, insulated packaging to ensure your food arrives hot, fresh, and ready to eat, while also being kind to the environment."
-    },
-    {
-      "question": "Can I make a reservation to dine in?",
-      "answer": "Currently, we are a delivery-only kitchen. We do not have a dine-in space. You can enjoy our authentic Swahili cuisine from the comfort of your home or office."
     }
   ]
 }

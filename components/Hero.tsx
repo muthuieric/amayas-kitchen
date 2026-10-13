@@ -30,14 +30,18 @@ export function Hero() {
           hot to your door.
         </p>
 
-        <div className="mt-7 flex w-full flex-col sm:w-auto sm:flex-row sm:items-center gap-3">
-          <Link
-            href="/menu"
-            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-orange-500 px-7 py-3.5 sm:py-4 text-base sm:text-lg font-bold text-white shadow-lg transition-all hover:bg-orange-600 active:scale-95"
-          >
-            <span>Explore the Menu</span>
-            <ArrowRight size={20} />
-          </Link>
+        <div className="mt-7 flex w-full flex-col sm:w-auto sm:flex-row sm:items-center gap-3">        
+                <Link
+                href="https://www.google.com/maps/dir/?api=1&destination=Titan+Complex%2C+Chaka+Road%2C+Kilimani%2C+Nairobi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-orange-500 px-7 py-3.5 sm:py-4 text-base sm:text-lg font-bold text-white shadow-lg transition-all hover:bg-orange-600 active:scale-95"
+              >
+                <MapPin size={18} />
+                <span>Get Directions</span>
+                <ArrowRight size={20} />
+
+              </Link>
           <Link
             href="/reservations"
             className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/25 bg-white/10 px-6 py-3.5 sm:py-4 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20 active:scale-95"

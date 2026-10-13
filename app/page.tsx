@@ -1,146 +1,70 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Flame, UtensilsCrossed } from "lucide-react";
+import { Calendar, MapPin, Sparkles } from "lucide-react";
 
 import { Hero } from "@/components/Hero";
-import { CATEGORIES, MENU_ITEMS, type Category } from "@/lib/menu-data";
-import { formatKes } from "@/lib/format";
+import { MENU_ITEMS } from "@/lib/menu-data";
 import { Reviews } from "@/components/Reviews";
 import { Faq } from "@/components/Faq";
 
 export const metadata = {
   title: "Amaya's Swahili Kitchen - Authentic Coastal Food, Kilimani",
   description:
-    "Order authentic Swahili food in Kilimani, Nairobi - pilau, biryani, mshikaki, coconut curries and more, delivered hot.",
-};
-
-const CATEGORY_TAGLINES: Record<Category, string> = {
-  "Swahili Classics": "Pilau, biryani & curries",
-  Grills: "Mshikaki & kuku choma",
-  Sides: "Chapati & viazi karai",
-  "Sweets & Chai": "Mahamri & spiced chai",
+    "Dine at our authentic Swahili restaurant in Kilimani, Nairobi. Book your table for pilau, biryani, mshikaki, and coconut curries.",
 };
 
 export default function HomePage() {
-  const featured = MENU_ITEMS.filter((i) => i.popular).slice(0, 3);
-
+  // Grab a popular image from your existing data to use as the showcase photo
+const showcaseImage = "/amaya-07.jpg";
   return (
     <>
       <Hero />
 
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
-        <div className="flex items-end justify-between gap-4">
+      {/* NEW SECTION: The Amaya Experience */}
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          
+          {/* Text Content */}
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-accent">
-              Browse the Kitchen
-            </span>
-            <h2 className="mt-1 font-display text-2xl font-black sm:text-3xl md:text-4xl">
-              Featured Categories
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-widest text-orange-700">
+                The Amaya Experience
+              </span>
+            </div>
+            
+            <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl md:text-5xl leading-tight text-slate-900">
+              Authentic Coastal Flavors in the Heart of Kilimani
             </h2>
-          </div>
-          <Link
-            href="/menu"
-            className="shrink-0 inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-accent hover:underline"
-          >
-            <span>Full menu</span>
-            <ArrowRight size={15} />
-          </Link>
-        </div>
-
-        {/* 2-column on mobile, 4-column on desktop */}
-        <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-          {CATEGORIES.map((cat) => {
-            const sample = MENU_ITEMS.find((i) => i.category === cat);
-            return (
-              <Link
-                key={cat}
-                href="/menu"
-                className="group relative overflow-hidden rounded-2xl bg-card shadow-card transition-all hover:-translate-y-1 hover:shadow-lifted active:scale-98"
-              >
-                {sample && (
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={sample.image}
-                      alt={cat}
-                      fill
-                      sizes="(min-width: 1024px) 25vw, 50vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/25 to-transparent" />
-                  </div>
-                )}
-                <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
-                  <p className="font-display text-sm sm:text-base md:text-lg font-black text-primary-foreground leading-tight">
-                    {cat}
-                  </p>
-                  <p className="mt-0.5 text-[11px] sm:text-xs text-primary-foreground/80 line-clamp-1">
-                    {CATEGORY_TAGLINES[cat]}
-                  </p>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="border-t bg-secondary/40">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
-          <div className="flex items-center gap-2">
-            <Flame size={18} className="text-primary" />
-            <span className="text-xs font-bold uppercase tracking-widest text-accent">
-              Signature Dishes
-            </span>
-          </div>
-          <h2 className="mt-1 font-display text-2xl font-black sm:text-3xl md:text-4xl">
-            Most-loved this week
-          </h2>
-
-          <div className="mt-6 sm:mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-            {featured.map((p) => (
-              <article
-                key={p.id}
-                className="group flex flex-col overflow-hidden rounded-2xl bg-card shadow-card"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={p.image}
-                    alt={p.name}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-4 sm:p-5">
-                  <h3 className="font-display text-base sm:text-lg font-black">{p.name}</h3>
-                  <p className="mt-1 line-clamp-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    {p.description}
-                  </p>
-                  <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-3.5">
-                    <span className="font-display text-lg sm:text-xl font-black text-accent">
-                      {formatKes(p.price)}
-                    </span>
-                    <Link
-                      href="/menu"
-                      className="inline-flex min-h-[38px] items-center gap-1 rounded-xl bg-foreground px-3.5 py-2 text-xs font-bold text-background transition-colors hover:bg-foreground/90 active:scale-95"
-                    >
-                      <span>View in Menu</span>
-                      <ArrowRight size={13} />
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
+            
+            <p className="mt-5 text-base text-slate-600 leading-relaxed sm:text-lg">
+              Escape the city rush and step into a warm, inviting atmosphere inspired by the Kenyan coast. 
+              At Amaya's, we combine generation-old family recipes with fresh, locally sourced ingredients 
+              to bring you the true taste of Swahili hospitality.
+            </p>
+            
           </div>
 
-          <div className="mt-8 sm:mt-10 flex justify-center">
-            <Link
-              href="/menu"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-base font-bold text-primary-foreground shadow-card transition-all hover:bg-primary-hover hover:shadow-lifted active:scale-95"
-            >
-              <UtensilsCrossed size={18} />
-              <span>See the Full Menu</span>
-            </Link>
+         {/* Showcase Image Container */}
+          <div className="relative w-full overflow-hidden rounded-3xl shadow-2xl">
+            <Image
+              src={showcaseImage}
+              alt="Amaya's Swahili Kitchen Experience"
+              width={800}
+              height={1000}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="h-auto w-full object-contain transition-transform duration-700 hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 p-6 sm:p-8">
+              <p className="font-display text-xl sm:text-2xl font-bold text-white">
+                Karibu Chakula
+              </p>
+              <p className="mt-1 text-sm text-white/90">
+                Where every meal is a celebration.
+              </p>
+            </div>
           </div>
+
         </div>
       </section>
 

@@ -27,7 +27,6 @@ const reservationSchema = z.object({
   date: z.string().min(1, "Date is required"),
   time: z.string().min(1, "Time is required"),
   guests: z.coerce.number().min(1, "At least one guest is required"),
-  seatingZone: z.string().optional(),
   specialRequests: z.string().optional(),
 });
 
@@ -38,7 +37,6 @@ export async function createReservation(prevState: any, formData: FormData) {
     date: formData.get("date"),
     time: formData.get("time"),
     guests: formData.get("guests"),
-    seatingZone: formData.get("seatingZone"),
     specialRequests: formData.get("specialRequests"),
   });
 
@@ -50,7 +48,7 @@ export async function createReservation(prevState: any, formData: FormData) {
     };
   }
 
-  const { name, phone, date, time, guests, seatingZone, specialRequests } =
+  const { name, phone, date, time, guests, specialRequests } =
     validatedFields.data;
 
   try {
@@ -60,7 +58,6 @@ export async function createReservation(prevState: any, formData: FormData) {
       date,
       time,
       guests,
-      seatingZone,
       specialRequests,
     });
 

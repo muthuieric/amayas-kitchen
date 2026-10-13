@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { Clock, Facebook, Instagram, MapPin, Phone } from "lucide-react";
+import { Clock, Facebook, Instagram, MapPin, Phone, ShoppingBag } from "lucide-react";
 
 export function Footer() {
   return (
     <footer id="contact" className="mt-auto border-t border-gray-200 bg-white">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:gap-10 sm:grid-cols-2 sm:px-6 lg:grid-cols-3 lg:py-12">
+      {/* UPDATE: Changed lg:grid-cols-3 to lg:grid-cols-4 to fit the new Order Online column */}
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:gap-10 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:py-12">
         <div>
           <p className="font-display text-lg font-black text-slate-900">
             Amaya's <span className="text-red-700">Swahili Kitchen</span>
@@ -31,7 +32,59 @@ export function Footer() {
             >
               <Facebook size={18} />
             </Link>
+            {/* TIKTOK LINK ADDED HERE */}
+            <Link
+              href="https://www.tiktok.com/@amayas.swahilikitchen"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+              className="grid h-11 w-11 place-items-center rounded-full bg-gray-100 text-slate-600 transition-colors hover:bg-orange-500 hover:text-white active:scale-95"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.04-.1z" />
+              </svg>
+            </Link>
           </div>
+        </div>
+
+        {/* UBER EATS, BOLT, AND GLOVO ADDED HERE */}
+        <div>
+          <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900">Order Online</h3>
+          <ul className="mt-3 space-y-2.5 text-xs sm:text-sm text-slate-600">
+            <li>
+              <Link
+                href="https://www.ubereats.com/ke/store/amayas-swahili-kitchen-kilimani/LrDdv1L2VEWm1mp3YvRDZA?srsltid=AU7gw4VhbRADd4aMudlizdbqU-lBFaXgxzpEFJpDgauVXm0BPkH7l72e"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 hover:text-orange-600 transition-colors"
+              >
+                <ShoppingBag size={16} className="shrink-0 text-orange-500" />
+                <span>Uber Eats</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://food.bolt.eu/en/320-nairobi/p/91916-amayas-swahili-kitchen/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 hover:text-orange-600 transition-colors"
+              >
+                <ShoppingBag size={16} className="shrink-0 text-orange-500" />
+                <span>Bolt Food</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://glovoapp.com/en/ke/nairobi/stores/amayas-swahili-kitchen-nbo?utm_medium=organic&utm_campaign=google_reserve_place_order_action&utm_source=google"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 hover:text-orange-600 transition-colors"
+              >
+                <ShoppingBag size={16} className="shrink-0 text-orange-500" />
+                <span>Glovo</span>
+              </Link>
+            </li>
+          </ul>
         </div>
 
         <div>
@@ -50,7 +103,7 @@ export function Footer() {
             </li>
             <li>
               <Link
-                href="tel:+254718 414667"
+                href="tel:+254718414667"
                 className="flex items-center gap-2.5 hover:text-orange-600 transition-colors"
               >
                 <Phone size={16} className="shrink-0 text-orange-500" />
