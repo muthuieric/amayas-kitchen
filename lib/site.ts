@@ -26,17 +26,13 @@ export const siteConfig = {
   language: "en-KE",
 
   description:
-    "Authentic Swahili and coastal Kenyan cuisine in Kilimani, Nairobi. Dine in, book a table, or get pilau, biryani, mshikaki and coconut curries delivered via Uber Eats, Bolt Food and Glovo.",
+    "Authentic Swahili and coastal Kenyan cuisine in Kilimani, Nairobi. Dine in, book a table, or order a variety of Swahili dishes via Uber Eats, Bolt Food and Glovo.",
 
   keywords: [
     "Swahili restaurant Nairobi",
     "Swahili food Kilimani",
     "coastal Kenyan cuisine Nairobi",
-    "best pilau in Nairobi",
-    "biryani Kilimani",
-    "mshikaki Nairobi",
-    "samaki wa kupaka",
-    "coconut curry Nairobi",
+    "Swahili dishes Nairobi",
     "restaurant in Kilimani",
     "Titan Complex Chaka Road food",
     "Amaya's Swahili Kitchen",
@@ -115,8 +111,10 @@ export const siteConfig = {
     },
   ],
 
+  // General WhatsApp contact link (used by "WhatsApp Us" buttons). Delivery
+  // itself is handled by Uber Eats / Bolt Food / Glovo — see `delivery` above.
   whatsappOrderUrl: `https://wa.me/254718414667?text=${encodeURIComponent(
-    "Habari Amaya's! 🍛 I'd like to place an order for delivery, tafadhali.",
+    "Habari Amaya's! I have a question, tafadhali.",
   )}`,
 } as const;
 

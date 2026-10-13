@@ -19,7 +19,7 @@ const VALUES = [
   {
     icon: Soup,
     title: "Traditional Recipes",
-    body: "Every pilau, biryani and coconut curry follows recipes passed down through generations on the Kenyan coast.",
+    body: "Every dish follows recipes passed down through generations on the Kenyan coast.",
   },
   {
     icon: Heart,
@@ -60,16 +60,15 @@ export default function AboutPage() {
       <section className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-16 md:py-20">
         <article className="space-y-5 font-sans text-sm leading-relaxed text-foreground/90 sm:text-base md:text-lg">
           <p>
-            Along the Kenyan coast, food is never rushed. Rice is layered with saffron and slow-baked
-            into biryani. Fish is smothered in creamy coconut and simmered until the sauce sings.
-            Cardamom, cloves, cumin and pili pili are toasted whole, then ground fresh - because
-            that's how our grandmothers did it.
+            Along the Kenyan coast, food is never rushed. Spices like cardamom,
+            cloves, cumin and pili pili are toasted whole, then ground fresh -
+            because that's how our grandmothers did it.
           </p>
           <p>
-            When we moved inland, we missed those flavors more than anything. The warm smell of
-            pilau on a Sunday afternoon. Charcoal-grilled <em>mshikaki</em> from a roadside jiko.
-            <em> Mahamri</em> and spiced chai for breakfast. So we built a kitchen that could bring
-            all of that home.
+            When we moved inland, we missed those flavors more than anything. The
+            warm, aromatic cooking of a coastal kitchen - hearty, comforting and
+            made with care. So we built a kitchen that could bring all of that
+            home, serving a variety of Swahili dishes made fresh daily.
           </p>
           <p className="border-l-4 border-primary pl-4 py-1 font-display text-lg sm:text-xl font-bold italic text-foreground">
             "Chakula ni upendo." Food is love. And we cook every plate like we're feeding our own
@@ -77,8 +76,8 @@ export default function AboutPage() {
           </p>
           <p>
             Today, Amaya's serves Kilimani and the surrounding neighborhoods with fresh, traditional
-            Swahili cooking - made from scratch every morning, delivered hot to your door via
-            WhatsApp. Karibu sana.
+            Swahili cooking - a variety of dishes made from scratch every morning. Dine in with us,
+            or order delivery via Uber Eats, Bolt Food and Glovo. Karibu sana.
           </p>
         </article>
       </section>

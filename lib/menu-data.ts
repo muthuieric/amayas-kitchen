@@ -30,7 +30,8 @@ export interface Product {
   prepTime?: string;
 }
 
-export const WHATSAPP_NUMBER = "254 718 414667"; // TODO: replace with the real number
+// Real WhatsApp number — no spaces so wa.me links resolve correctly.
+export const WHATSAPP_NUMBER = "254718414667";
 
 export const MENU_ITEMS: Product[] = [
   {

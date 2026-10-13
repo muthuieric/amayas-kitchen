@@ -117,34 +117,21 @@ export function restaurantSchema() {
   const menu = { "@id": ID.menu };
   const acceptsReservations = absUrl("/reservations");
 
-  // Ordering actions: our own WhatsApp + the three delivery partners.
-  const orderActions = [
-    {
-      "@type": "OrderAction",
-      name: "Order for delivery on WhatsApp",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: siteConfig.whatsappOrderUrl,
-        inLanguage: siteConfig.language,
-        actionPlatform: [
-          "https://schema.org/DesktopWebPlatform",
-          "https://schema.org/MobileWebPlatform",
-        ],
-      },
+  // Ordering actions: delivery is handled by the three partners (Uber Eats,
+  // Bolt Food, Glovo) — we deliberately do NOT advertise our own delivery.
+  // Direct WhatsApp is a contact channel, not a delivery-order action.
+  const orderActions = siteConfig.delivery.map((p) => ({
+    "@type": "OrderAction",
+    name: `Order delivery via ${p.name}`,
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: p.url,
+      actionPlatform: [
+        "https://schema.org/DesktopWebPlatform",
+        "https://schema.org/MobileWebPlatform",
+      ],
     },
-    ...siteConfig.delivery.map((p) => ({
-      "@type": "OrderAction",
-      name: `Order delivery via ${p.name}`,
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: p.url,
-        actionPlatform: [
-          "https://schema.org/DesktopWebPlatform",
-          "https://schema.org/MobileWebPlatform",
-        ],
-      },
-    })),
-  ];
+  }));
 
   const potentialAction = [
     ...orderActions,

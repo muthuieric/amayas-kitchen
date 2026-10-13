@@ -66,8 +66,8 @@ export const NAIROBI_AREAS = [
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [orderType, setOrderType] = useState<OrderType>("delivery");
-  const [deliveryArea, setDeliveryArea] = useState<string>("Kilimani");
+  const [orderType, setOrderType] = useState<OrderType>("pickup");
+  const [deliveryArea, setDeliveryArea] = useState<string>("");
   const [customerName, setCustomerName] = useState<string>("");
   const [specialNotes, setSpecialNotes] = useState<string>("");
 
@@ -163,15 +163,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
     const details = [
       "",
       "*Order Details:*",
-      `• Type: ${orderType === "delivery" ? "🛵 Delivery" : "🏃 Takeaway / Pickup"}`,
+      `• Type: ${orderType === "pickup" ? "🏃 Pickup (Kilimani)" : "🛵 Delivery"}`,
       customerName ? `• Customer: ${customerName}` : null,
-      orderType === "delivery" ? `• Location: ${deliveryArea}` : null,
+      orderType === "delivery" && deliveryArea ? `• Location: ${deliveryArea}` : null,
       specialNotes ? `• Special Instructions: ${specialNotes}` : null,
       "",
       `*Subtotal:* KES ${subtotal}`,
-      orderType === "delivery"
-        ? "Please confirm availability and delivery fee!"
-        : "Please confirm when it will be ready for pickup!",
+      "Please confirm availability and when it will be ready. Asante!",
     ]
       .filter((line) => line !== null)
       .join("\n");

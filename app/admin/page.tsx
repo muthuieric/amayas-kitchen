@@ -1,28 +1,15 @@
 "use client";
 
-import { useEffect, useState, useActionState } from "react";
+import { useActionState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getReservations, uploadPhoto, updatePassword } from "@/lib/actions";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { uploadPhoto, updatePassword } from "@/lib/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-type Reservation = {
-  name: string;
-  date: string;
-  time: string;
-  guests: number;
-};
-
-function AdminDashboard({ reservations }: { reservations: Reservation[] }) {
+// NOTE: Reservations are no longer stored on the server (no database) — they
+// go straight to WhatsApp, so there is no reservations list to show here.
+function AdminDashboard() {
   const [photoState, photoFormAction] = useActionState(uploadPhoto, {
     message: "",
   });
@@ -37,15 +24,9 @@ function AdminDashboard({ reservations }: { reservations: Reservation[] }) {
         Admin Dashboard
       </h1>
 
-      <Tabs defaultValue="reservations" className="space-y-6">
+      <Tabs defaultValue="photos" className="space-y-6">
         <div className="overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <TabsList className="inline-flex h-auto p-1.5 rounded-xl bg-gray-100/90 gap-1 min-w-full sm:min-w-0">
-            <TabsTrigger
-              value="reservations"
-              className="flex-1 sm:flex-initial rounded-lg px-3.5 py-2 text-xs sm:text-sm font-bold data-[state=active]:bg-white data-[state=active]:shadow-xs"
-            >
-              Reservations
-            </TabsTrigger>
             <TabsTrigger
               value="photos"
               className="flex-1 sm:flex-initial rounded-lg px-3.5 py-2 text-xs sm:text-sm font-bold data-[state=active]:bg-white data-[state=active]:shadow-xs"
@@ -60,41 +41,6 @@ function AdminDashboard({ reservations }: { reservations: Reservation[] }) {
             </TabsTrigger>
           </TabsList>
         </div>
-
-        <TabsContent value="reservations" className="space-y-4">
-          <div className="overflow-x-auto rounded-2xl border border-gray-200/80 bg-white shadow-xs">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="font-bold">Name</TableHead>
-                  <TableHead className="font-bold">Date</TableHead>
-                  <TableHead className="font-bold">Time</TableHead>
-                  <TableHead className="font-bold">Guests</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {reservations.length === 0 ? (
-                  <TableRow>
-                    <TableCell colSpan={4} className="h-24 text-center text-slate-500">
-                      No reservations yet.
-                    </TableCell>
-                  </TableRow>
-                ) : (
-                  reservations.map((reservation, index) => (
-                    <TableRow key={`${reservation.name}-${index}`}>
-                      <TableCell className="font-semibold text-slate-900 whitespace-nowrap">
-                        {reservation.name}
-                      </TableCell>
-                      <TableCell className="whitespace-nowrap">{reservation.date}</TableCell>
-                      <TableCell className="whitespace-nowrap">{reservation.time}</TableCell>
-                      <TableCell>{reservation.guests}</TableCell>
-                    </TableRow>
-                  ))
-                )}
-              </TableBody>
-            </Table>
-          </div>
-        </TabsContent>
 
         <TabsContent value="photos">
           <div className="max-w-md rounded-2xl border border-gray-200/80 bg-white p-5 sm:p-6 shadow-xs">
@@ -137,11 +83,5 @@ function AdminDashboard({ reservations }: { reservations: Reservation[] }) {
 }
 
 export default function AdminPage() {
-  const [reservations, setReservations] = useState<Reservation[]>([]);
-
-  useEffect(() => {
-    getReservations().then(setReservations);
-  }, []);
-
-  return <AdminDashboard reservations={reservations} />;
+  return <AdminDashboard />;
 }

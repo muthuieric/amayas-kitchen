@@ -8,7 +8,7 @@ export function Hero() {
     <section className="relative overflow-hidden group">
       <Image
         src={heroImage}
-        alt="A spread of traditional Swahili dishes — pilau, coconut curry, chapati and grilled skewers"
+        alt="A spread of traditional Swahili dishes served at Amaya's Swahili Kitchen"
         fill
         priority
         sizes="100vw"
@@ -26,8 +26,8 @@ export function Hero() {
         </h1>
 
         <p className="mt-3.5 max-w-lg text-sm leading-relaxed text-gray-200 sm:text-base md:text-lg">
-          Slow-cooked pilau, smoky mshikaki and coconut-rich curries made fresh daily, delivered
-          hot to your door.
+          A variety of authentic Swahili dishes, made fresh daily. Dine in with
+          us or order via Uber Eats, Bolt Food and Glovo.
         </p>
 
         <div className="mt-7 flex w-full flex-col sm:w-auto sm:flex-row sm:items-center gap-3">        

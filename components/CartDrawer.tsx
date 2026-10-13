@@ -6,6 +6,7 @@ import Link from "next/link";
 import {
   Bike,
   Clock,
+  ExternalLink,
   MapPin,
   Minus,
   Plus,
@@ -14,9 +15,10 @@ import {
   Trash2,
   X,
 } from "lucide-react";
-import { useCart, NAIROBI_AREAS, type OrderType } from "@/lib/cart-context";
+import { useCart } from "@/lib/cart-context";
 import { formatKes } from "@/lib/format";
 import { MENU_ITEMS } from "@/lib/menu-data";
+import { siteConfig } from "@/lib/site";
 
 export function CartDrawer() {
   const {
@@ -27,10 +29,6 @@ export function CartDrawer() {
     increment,
     decrement,
     removeItem,
-    orderType,
-    setOrderType,
-    deliveryArea,
-    setDeliveryArea,
     customerName,
     setCustomerName,
     specialNotes,
@@ -68,8 +66,6 @@ export function CartDrawer() {
       (m.id === "chapati" || m.id === "viazi-karai" || m.id === "mahamri") &&
       !items.some((cartItem) => cartItem.product.id === m.id),
   ).slice(0, 2);
-
-  const selectedAreaObj = NAIROBI_AREAS.find((a) => a.name === deliveryArea);
 
   return (
     <>
@@ -131,65 +127,45 @@ export function CartDrawer() {
           </div>
         ) : (
           <>
-            {/* Order Type Toggle (Delivery vs Pickup) */}
+            {/* Fulfilment: Pickup at our kitchen, or Delivery via our partners */}
             <div className="border-b border-gray-100 bg-gray-50/80 px-5 py-3">
-              <div className="flex rounded-xl bg-gray-200/80 p-1">
-                <button
-                  type="button"
-                  onClick={() => setOrderType("delivery")}
-                  className={`flex flex-1 items-center justify-center gap-1.5 rounded-lg py-2 text-xs font-bold transition-all ${
-                    orderType === "delivery"
-                      ? "bg-white text-slate-900 shadow-xs"
-                      : "text-slate-600 hover:text-slate-900"
-                  }`}
-                >
-                  <Bike size={14} />
-                  <span>Delivery</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setOrderType("pickup")}
-                  className={`flex flex-1 items-center justify-center gap-1.5 rounded-lg py-2 text-xs font-bold transition-all ${
-                    orderType === "pickup"
-                      ? "bg-white text-slate-900 shadow-xs"
-                      : "text-slate-600 hover:text-slate-900"
-                  }`}
-                >
-                  <Store size={14} />
-                  <span>Pickup in Kilimani</span>
-                </button>
+              <div className="flex items-center gap-2 text-xs text-slate-600">
+                <Store size={14} className="text-orange-600" />
+                <span>Pickup from Amaya&apos;s Kilimani Kitchen</span>
+              </div>
+              <div className="mt-1 flex items-center gap-1.5 text-xs text-slate-600">
+                <Clock size={13} className="text-orange-600" />
+                <span>Ready in 15–25 mins • We&apos;ll confirm your time on WhatsApp</span>
               </div>
 
-              {/* Delivery / Pickup Area Selector */}
-              {orderType === "delivery" ? (
-                <div className="mt-2.5 flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-1.5 text-slate-600">
-                    <MapPin size={13} className="text-orange-600" />
-                    <span>Area:</span>
-                    <select
-                      value={deliveryArea}
-                      onChange={(e) => setDeliveryArea(e.target.value)}
-                      className="rounded-md border border-gray-200 bg-white px-2 py-1 font-semibold text-slate-900 focus:outline-none focus:ring-1 focus:ring-orange-500"
+              {/* Delivery partners — we don't self-deliver; order through these apps */}
+              <div className="mt-3 rounded-xl border border-orange-100 bg-orange-50/60 p-2.5">
+                <p className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-orange-700">
+                  <Bike size={13} />
+                  Want it delivered? Order via
+                </p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {siteConfig.delivery.map((partner) => (
+                    <a
+                      key={partner.name}
+                      href={partner.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-bold text-slate-800 shadow-xs ring-1 ring-gray-200 transition-colors hover:bg-orange-500 hover:text-white hover:ring-orange-500"
                     >
-                      {NAIROBI_AREAS.map((a) => (
-                        <option key={a.name} value={a.name}>
-                          {a.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  {selectedAreaObj && (
-                    <span className="font-semibold text-emerald-700">
-                      {selectedAreaObj.estimate}
-                    </span>
-                  )}
+                      <span>{partner.name}</span>
+                      <ExternalLink size={12} />
+                    </a>
+                  ))}
                 </div>
-              ) : (
-                <div className="mt-2 flex items-center gap-1.5 text-xs text-slate-600">
-                  <Clock size={13} className="text-orange-600" />
-                  <span>Ready in 15–25 mins • Amaya&apos;s Kilimani Kitchen</span>
-                </div>
-              )}
+                <p className="mt-2 flex items-start gap-1.5 text-[11px] leading-snug text-slate-500">
+                  <MapPin size={12} className="mt-0.5 shrink-0 text-orange-500" />
+                  <span>
+                    Delivery is handled by Uber Eats, Bolt Food &amp; Glovo — pick your app and
+                    order from our listing there.
+                  </span>
+                </p>
+              </div>
             </div>
 
             {/* Scrollable Items List */}
@@ -353,9 +329,7 @@ export function CartDrawer() {
                   </span>
                 </div>
                 <div className="text-right text-[11px] text-slate-500">
-                  {orderType === "delivery"
-                    ? `${selectedAreaObj?.fee || "Courier fee"} on WhatsApp`
-                    : "No delivery fee (Pickup)"}
+                  Delivery fees are set by the delivery apps
                 </div>
               </div>
 

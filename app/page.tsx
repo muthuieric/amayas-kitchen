@@ -12,14 +12,14 @@ import { buildMetadata } from "@/lib/metadata";
 export const metadata = buildMetadata({
   title: "Amaya's Swahili Kitchen - Authentic Coastal Food, Kilimani",
   description:
-    "Dine at our authentic Swahili restaurant in Kilimani, Nairobi, or order pilau, biryani, mshikaki and coconut curries delivered via Uber Eats, Bolt Food and Glovo. Book your table today.",
+    "Dine at our authentic Swahili restaurant in Kilimani, Nairobi — a variety of coastal dishes made fresh daily. Order delivery via Uber Eats, Bolt Food and Glovo. Book your table today.",
   path: "/",
   keywords: [
     "Swahili restaurant Nairobi",
     "Swahili food Kilimani",
     "restaurant in Kilimani",
-    "best pilau in Nairobi",
-    "biryani Kilimani",
+    "Swahili dishes Nairobi",
+    "coastal food Kilimani",
     "food delivery Kilimani",
     "Uber Eats Kilimani",
     "Bolt Food Nairobi",

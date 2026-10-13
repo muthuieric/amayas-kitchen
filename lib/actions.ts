@@ -4,83 +4,11 @@ import { z } from "zod";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import bcrypt from "bcrypt";
-import { addReservation } from "./reservations-store";
 
-const dummyReservations = [
-  {
-    name: "John Doe",
-    date: "2024-07-15",
-    time: "18:00",
-    guests: 2,
-  },
-  {
-    name: "Jane Smith",
-    date: "2024-07-16",
-    time: "19:30",
-    guests: 4,
-  },
-];
-
-const reservationSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  phone: z.string().optional(),
-  date: z.string().min(1, "Date is required"),
-  time: z.string().min(1, "Time is required"),
-  guests: z.coerce.number().min(1, "At least one guest is required"),
-  specialRequests: z.string().optional(),
-});
-
-export async function createReservation(prevState: any, formData: FormData) {
-  const validatedFields = reservationSchema.safeParse({
-    name: formData.get("name"),
-    phone: formData.get("phone"),
-    date: formData.get("date"),
-    time: formData.get("time"),
-    guests: formData.get("guests"),
-    specialRequests: formData.get("specialRequests"),
-  });
-
-  if (!validatedFields.success) {
-    return {
-      success: false,
-      message: "Please fix the errors below.",
-      errors: validatedFields.error.flatten().fieldErrors,
-    };
-  }
-
-  const { name, phone, date, time, guests, specialRequests } =
-    validatedFields.data;
-
-  try {
-    const reservation = await addReservation({
-      name,
-      phone,
-      date,
-      time,
-      guests,
-      specialRequests,
-    });
-
-    return {
-      success: true,
-      message: "Reservation created successfully!",
-      data: reservation,
-      errors: {},
-    };
-  } catch (error) {
-    console.error("Failed to save reservation:", error);
-    return {
-      success: false,
-      message:
-        "Sorry, something went wrong while saving your reservation. Please try again.",
-      errors: {},
-    };
-  }
-}
-
-export async function getReservations() {
-  return dummyReservations;
-}
+// NOTE: We intentionally DO NOT store reservations anywhere. There is no
+// database on this project. Reservations (and food orders) are sent straight
+// to the restaurant's WhatsApp. See app/reservations/page.tsx, which builds
+// the pre-filled WhatsApp message client-side.
 
 const loginSchema = z.object({
   password: z.string().min(1, "Password is required"),

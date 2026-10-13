@@ -1,83 +1,108 @@
 "use client";
 
-import { useState } from "react";
-import { useActionState } from "react";
+import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import {
   Calendar as CalendarIcon,
-  CheckCircle2,
   Clock,
-  MapPin,
   Minus,
-  PartyPopper,
   Plus,
-  Sparkles,
   Users,
-  Utensils,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Calendar } from "@/components/ui/calendar";
-import { createReservation } from "@/lib/actions";
 import { blockedDates } from "@/config/reservations";
 
 const LUNCH_SLOTS = ["12:00", "12:30", "13:00", "13:30", "14:00"];
 const DINNER_SLOTS = ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00"];
 
-const initialState: any = {
-  message: "",
-  errors: {},
-};
+const WHATSAPP_NUMBER = "254718414667";
+
+/** Format a Date as YYYY-MM-DD in LOCAL time (toISOString shifts timezone). */
+function toLocalISODate(d: Date): string {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(
+    d.getDate(),
+  ).padStart(2, "0")}`;
+}
 
 export default function ReservationsPage() {
-  const [state, formAction] = useActionState(createReservation, initialState);
+  // No database, no server action: the booking is sent straight to WhatsApp.
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [selectedTime, setSelectedTime] = useState<string>("19:00");
   const [guests, setGuests] = useState<number>(2);
-  const [occasion, setOccasion] = useState<string>("Casual Dining");
+  const [name, setName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [specialRequests, setSpecialRequests] = useState<string>("");
+  const [nameError, setNameError] = useState<string>("");
+  const [sent, setSent] = useState<boolean>(false);
 
-  const formattedDate = date ? date.toISOString().split("T")[0] : "";
+  const formattedDate = date ? toLocalISODate(date) : "";
 
-  // If successfully booked
-  if (state?.success && state?.data) {
-    const booking = state.data;
-    const specialLine = booking.specialRequests
-      ? `\nNotes: \n${booking.specialRequests}`
-      : "";
-      
-    // Removed seatingZone from the WhatsApp Message
-    const whatsappMsg = `Habari Amaya's! 🍽️ New table reservation from your website:\nRef: ${booking.bookingRef}\nName: ${booking.name}\nPhone: ${booking.phone}\nDate: ${booking.date}\nTime: ${booking.time}\nParty: ${booking.guests} Guests${specialLine}\n\nPlease confirm my reservation!`;
-    const whatsappUrl = `https://wa.me/254718414667?text=${encodeURIComponent(whatsappMsg)}`;
+  // Build the pre-filled WhatsApp booking message (client-side only —
+  // nothing is stored anywhere).
+  const whatsappUrl = (() => {
+    const lines = [
+      "Habari Amaya's! I'd like to book a table from your website:",
+      "",
+      `Name: ${name.trim() || "-"}`,
+      phone.trim() ? `Phone: ${phone.trim()}` : null,
+      `Date: ${formattedDate}`,
+      `Time: ${selectedTime}`,
+      `Guests: ${guests}`,
+      specialRequests.trim() ? `Notes: ${specialRequests.trim()}` : null,
+      "",
+      "Please confirm my reservation!",
+    ].filter(Boolean);
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+      lines.join("\n")
+    )}`;
+  })();
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!name.trim()) {
+      setNameError("Please enter your name so we can note the booking.");
+      return;
+    }
+    setNameError("");
+    // Opens WhatsApp with the reservation pre-filled — nothing is saved.
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    setSent(true);
+  };
+
+  // After submitting: confirmation panel (also a fallback link in case the
+  // browser blocked the new tab).
+  if (sent) {
     return (
       <div className="mx-auto max-w-xl px-4 py-12 sm:px-6 sm:py-20 animate-in fade-in zoom-in-95 duration-300">
         <div className="rounded-3xl border border-orange-500 bg-white p-6 sm:p-10 text-center shadow-xl">
 
           <span className="inline-block rounded-full bg-orange-500 border border-orange-500 px-3 py-1 text-xs font-bold text-white">
-            Booking Confirmed • Ref #{booking.bookingRef}
+            Ready to send • On WhatsApp
           </span>
 
           <h1 className="mt-3 font-display text-2xl sm:text-3xl font-black text-slate-900">
             Karibu Amaya&apos;s!
           </h1>
           <p className="mt-2 text-sm text-slate-600">
-            We have reserved your table, <strong>{booking.name}</strong>. A warm Swahili culinary welcome awaits you in Kilimani.
+            Your booking details are ready, <strong>{name.trim()}</strong>. If WhatsApp did not open automatically, tap the button below — we will confirm your table there.
           </p>
 
           {/* Details Ticket */}
           <div className="mt-6 rounded-2xl border border-gray-100 bg-gray-50/80 p-4 text-left divide-y divide-gray-200/60 text-xs sm:text-sm">
             <div className="flex justify-between py-2">
               <span className="text-slate-500">Date</span>
-              <span className="font-bold text-slate-900">{booking.date}</span>
+              <span className="font-bold text-slate-900">{formattedDate}</span>
             </div>
             <div className="flex justify-between py-2">
               <span className="text-slate-500">Time Slot</span>
-              <span className="font-bold text-slate-900">{booking.time}</span>
+              <span className="font-bold text-slate-900">{selectedTime}</span>
             </div>
             <div className="flex justify-between py-2">
               <span className="text-slate-500">Party Size</span>
-              <span className="font-bold text-slate-900">{booking.guests} Guests</span>
+              <span className="font-bold text-slate-900">{guests} Guests</span>
             </div>
           </div>
 
@@ -89,9 +114,15 @@ export default function ReservationsPage() {
               rel="noopener noreferrer"
               className="flex w-full min-h-[44px] items-center justify-center gap-2 rounded-xl bg-orange-500 px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-orange-600 transition-all"
             >
-              <span>Confirm Instant Booking via WhatsApp</span>
+              <span>Send Booking via WhatsApp</span>
             </Link>
-         
+            <button
+              type="button"
+              onClick={() => setSent(false)}
+              className="text-xs font-semibold text-slate-500 underline underline-offset-2 hover:text-slate-800"
+            >
+              Change my details
+            </button>
           </div>
         </div>
       </div>
@@ -114,14 +145,9 @@ export default function ReservationsPage() {
       </div>
 
       <form
-        action={formAction}
+        onSubmit={handleSubmit}
         className="mt-8 space-y-8 rounded-3xl border border-gray-200/80 bg-white p-5 sm:p-8 shadow-sm"
       >
-        {/* Hidden inputs synced with interactive UI */}
-        <input type="hidden" name="date" value={formattedDate} />
-        <input type="hidden" name="time" value={selectedTime} />
-        <input type="hidden" name="guests" value={guests} />
-
         {/* 1. Guest Party Size Stepper & Quick Pills */}
         <div className="space-y-3">
           <div className="flex items-center justify-between">
@@ -171,9 +197,6 @@ export default function ReservationsPage() {
               </button>
             </div>
           </div>
-          {state.errors?.guests && (
-            <p className="text-xs font-semibold text-red-600">{state.errors.guests}</p>
-          )}
         </div>
 
         {/* 2. Date Selection (Calendar Grid) */}
@@ -201,9 +224,6 @@ export default function ReservationsPage() {
               className="rounded-md"
             />
           </div>
-          {state.errors?.date && (
-            <p className="text-xs font-semibold text-red-600">{state.errors.date}</p>
-          )}
         </div>
 
         {/* 3. Time Slot Picker (Lunch & Dinner) */}
@@ -260,9 +280,6 @@ export default function ReservationsPage() {
               </div>
             </div>
           </div>
-          {state.errors?.time && (
-            <p className="text-xs font-semibold text-red-600">{state.errors.time}</p>
-          )}
         </div>
 
         {/* 4. Contact Details */}
@@ -274,22 +291,26 @@ export default function ReservationsPage() {
             <Input
               id="name"
               name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               placeholder="e.g. Amani Mwangi"
               className="h-11 text-sm rounded-xl"
               required
             />
-            {state.errors?.name && (
-              <p className="text-xs font-semibold text-red-600">{state.errors.name}</p>
+            {nameError && (
+              <p className="text-xs font-semibold text-red-600">{nameError}</p>
             )}
           </div>
 
           <div className="space-y-1.5">
             <Label htmlFor="phone" className="text-xs font-bold uppercase tracking-wider text-slate-500">
-              Phone Number (for SMS confirmation)
+              Phone Number (for confirmation)
             </Label>
             <Input
               id="phone"
               name="phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               placeholder="e.g. +254 718 414667"
               className="h-11 text-sm rounded-xl"
             />
@@ -304,6 +325,8 @@ export default function ReservationsPage() {
           <Input
             id="specialRequests"
             name="specialRequests"
+            value={specialRequests}
+            onChange={(e) => setSpecialRequests(e.target.value)}
             placeholder="e.g. Birthday celebration, anniversary, high chair needed, dietary restrictions..."
             className="h-11 text-sm rounded-xl"
           />
@@ -311,9 +334,9 @@ export default function ReservationsPage() {
 
         {/* Policy Notice */}
         <div className="rounded-2xl bg-orange-50/70 border border-orange-200/60 p-4 text-xs text-orange-900 leading-relaxed">
-          <p className="font-bold">Reservation Guarantee</p>
+          <p className="font-bold">How it works</p>
           <p className="mt-1 text-orange-800/90">
-            Tables are held for up to 15 minutes past your reserved time. Instant confirmation will be sent directly to your screen and can be forwarded to WhatsApp.
+            Tap the button below and WhatsApp will open with your booking details pre-filled. Send the message and we will reply there to confirm your table. Tables are held for up to 15 minutes past your reserved time.
           </p>
         </div>
 
@@ -322,7 +345,7 @@ export default function ReservationsPage() {
           type="submit"
           className="w-full min-h-[50px] rounded-2xl bg-orange-500 hover:bg-orange-600 active:scale-98 text-white font-bold text-base shadow-sm transition-all"
         >
-          Confirm for {guests} {guests === 1 ? "Guest" : "Guests"}
+          Send Booking via WhatsApp for {guests} {guests === 1 ? "Guest" : "Guests"}
         </Button>
       </form>
     </div>
