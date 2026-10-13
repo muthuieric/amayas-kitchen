@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
+import { GalleryGrid } from "@/components/GalleryGrid";
 
 export const metadata = buildMetadata({
   title: "Gallery - Real Photos of Our Swahili Dishes",
@@ -36,33 +36,8 @@ export default function GalleryPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
-        {/* Modern dynamic grid layout with varying aspect ratios */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {PHOTOS.map((photo, index) => {
-            const isTall = index % 5 === 0;
-            const isWide = index % 7 === 0;
-            
-            let aspectClass = "aspect-[4/3]";
-            if (isTall) aspectClass = "aspect-[3/4]";
-            else if (isWide) aspectClass = "aspect-square";
-
-            return (
-              <div
-                key={photo.src}
-                className={`group relative overflow-hidden rounded-3xl bg-gray-100 shadow-sm transition-all duration-500 hover:-translate-y-1.5 hover:shadow-xl ${aspectClass}`}
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              </div>
-            );
-          })}
-        </div>
+        {/* Dynamic grid with per-image shimmer placeholders while photos load */}
+        <GalleryGrid photos={PHOTOS} />
 
         <div className="mt-12 flex justify-center">
           <Link

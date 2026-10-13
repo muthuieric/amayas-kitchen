@@ -99,7 +99,9 @@ export async function login(prevState: any, formData: FormData) {
 
   if (validatedFields.data.password === process.env.ADMIN_PASSWORD) {
     const expires = new Date(Date.now() + 24 * 60 * 60 * 1000);
-    cookies().set("session", "admin", { expires, httpOnly: true });
+    // Next 15+/React 19: cookies() is async — await it before setting.
+    const cookieStore = await cookies();
+    cookieStore.set("session", "admin", { expires, httpOnly: true });
     redirect("/admin");
   } else {
     return {

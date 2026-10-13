@@ -133,3 +133,10 @@ body {
     letter-spacing: -0.02em;
   }
 }
+
+/* Skeleton shimmer (used by route loading.tsx skeletons) */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

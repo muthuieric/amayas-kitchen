@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormState } from "react-dom";
+import { useEffect, useState, useActionState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getReservations, uploadPhoto, updatePassword } from "@/lib/actions";
 import {
@@ -14,7 +14,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useEffect, useState } from "react";
 
 type Reservation = {
   name: string;
@@ -24,11 +23,11 @@ type Reservation = {
 };
 
 function AdminDashboard({ reservations }: { reservations: Reservation[] }) {
-  const [photoState, photoFormAction] = useFormState(uploadPhoto, {
+  const [photoState, photoFormAction] = useActionState(uploadPhoto, {
     message: "",
   });
 
-  const [passwordState, passwordFormAction] = useFormState(updatePassword, {
+  const [passwordState, passwordFormAction] = useActionState(updatePassword, {
     message: "",
   });
 

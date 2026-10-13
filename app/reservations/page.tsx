@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import Link from "next/link";
 import {
   Calendar as CalendarIcon,
@@ -31,7 +31,7 @@ const initialState: any = {
 };
 
 export default function ReservationsPage() {
-  const [state, formAction] = useFormState(createReservation, initialState);
+  const [state, formAction] = useActionState(createReservation, initialState);
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [selectedTime, setSelectedTime] = useState<string>("19:00");
   const [guests, setGuests] = useState<number>(2);

@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ADMIN_COOKIE_NAME, verifyJWT } from "@/lib/auth";
 
-export async function middleware(request: NextRequest) {
+/**
+ * Next.js 16 renamed Middleware → Proxy (same functionality).
+ * See node_modules/next/dist/docs/01-app/01-getting-started/16-proxy.md
+ */
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const isLoginPage = pathname === "/admin/login";
 
