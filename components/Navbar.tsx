@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ChevronRight, Clock, MapPin, Menu, Phone, ShoppingBag, X } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
@@ -49,14 +50,24 @@ export function Navbar() {
     <>
       <header className="sticky top-0 z-40 w-full border-b border-gray-200/90 bg-white/90 backdrop-blur-md transition-shadow">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
-          {/* Brand Logo */}
+          {/* Circular Logo & Brand Name */}
           <Link
             href="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-1.5 font-display font-black tracking-tight text-slate-900 text-lg sm:text-xl transition-transform active:scale-98"
+            className="flex items-center gap-2.5 transition-transform active:scale-98"
           >
-            <span>Amaya's</span>
-            {/* <span className="text-red-700">Swahili Kitchen</span> */}
+            <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-gray-200 bg-white shadow-xs">
+              <Image
+                src="/logo.png"
+                alt="Amaya's Swahili Kitchen Logo"
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
+            <span className="font-display font-black tracking-tight text-slate-900 text-sm sm:text-base leading-tight">
+              Amaya's <span className="text-red-700">Swahili Kitchen</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -98,26 +109,7 @@ export function Navbar() {
               <span>WhatsApp Us</span>
             </a>
 
-            {/* Cart Trigger (Commented out to hide it) */}
-            {/* 
-            <button
-              onClick={openCart}
-              type="button"
-              aria-label={`Shopping cart, ${itemCount} items`}
-              className="relative flex h-10 items-center justify-center rounded-xl bg-gray-100/90 px-3 text-slate-700 transition-all hover:bg-orange-50 hover:text-orange-600 active:scale-95"
-            >
-              <ShoppingBag size={20} className="shrink-0" />
-              {itemCount > 0 ? (
-                <span className="ml-1.5 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-red-700 px-1 text-[11px] font-bold text-white shadow-sm">
-                  {itemCount}
-                </span>
-              ) : (
-                <span className="sr-only">Cart empty</span>
-              )}
-            </button> 
-            */}
-
-            {/* Mobile Hamburger Button (visible below md) */}
+            {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen((prev) => !prev)}
               type="button"
@@ -152,13 +144,19 @@ export function Navbar() {
       >
         {/* Drawer Header */}
         <div className="flex h-16 items-center justify-between border-b border-gray-100 px-5">
-          <Link
-            href="/"
-            onClick={() => setMobileMenuOpen(false)}
-            className="font-display text-lg font-black tracking-tight text-slate-900"
-          >
-            Amaya's <span className="text-red-700">Kitchen</span>
-          </Link>
+          <div className="flex items-center gap-2">
+            <div className="relative h-8 w-8 overflow-hidden rounded-full border border-gray-200 bg-white">
+              <Image
+                src="/logo.png"
+                alt="Amaya's Swahili Kitchen Logo"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <span className="font-display font-black text-sm text-slate-900">
+              Amaya's <span className="text-red-700">Kitchen</span>
+            </span>
+          </div>
           <button
             onClick={() => setMobileMenuOpen(false)}
             aria-label="Close navigation menu"
@@ -202,7 +200,7 @@ export function Navbar() {
               Quick Actions
             </p>
             <div className="mt-3 space-y-2.5">
-              {/* Mobile WhatsApp Button (Orange Styling) */}
+              {/* Mobile WhatsApp Button */}
               <Link
                 href="https://wa.me/254718414667"
                 target="_blank"

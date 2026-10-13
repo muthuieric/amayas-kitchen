@@ -6,20 +6,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   Bot,
-  Check,
   ChevronRight,
-  Flame,
   MessageCircle,
-  Plus,
   RotateCcw,
   Send,
-  ShoppingBag,
   Sparkles,
   X,
 } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
-import { formatKes } from "@/lib/format";
-import type { Product } from "@/lib/menu-data";
 import {
   getChatbotResponse,
   type BotResponse,
@@ -30,16 +24,13 @@ interface Message {
   id: string;
   sender: "bot" | "user";
   text: string;
-  dishes?: Product[];
-  action?: "open_cart" | "open_reservations" | "open_menu" | "open_whatsapp";
+  action?: "open_reservations" | "open_whatsapp";
   actionLabel?: string;
   suggestions?: string[];
   timestamp: string;
 }
 
 const INITIAL_SUGGESTIONS = [
-  "🔥 Popular dishes",
-  "🌶️ Spicy food",
   "🕒 Opening hours",
   "📍 Where are you located?",
   "🛵 How does delivery work?",
@@ -52,19 +43,18 @@ function formatTime(date: Date = new Date()): string {
 
 export function Chatbot() {
   const router = useRouter();
-  const { addItem, items, subtotal, itemCount, openCart, whatsappUrl } = useCart();
+  const { items, subtotal, itemCount, whatsappUrl } = useCart();
 
   const [isOpen, setIsOpen] = useState(false);
   const [inputText, setInputText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [showCallout, setShowCallout] = useState(true);
-  const [addedMap, setAddedMap] = useState<Record<string, boolean>>({});
 
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "initial-greeting",
       sender: "bot",
-      text: "Jambo na Karibu Amaya's Swahili Kitchen! 🍛\n\nI am **Amaya Assistant**, your guide to authentic coastal flavors. Craving slow-cooked pilau, biryani, or need help with delivery and reservations? Ask me anything!",
+      text: "Jambo na Karibu Amaya's Swahili Kitchen! 🍛\n\nI am **Amaya Assistant**. Need help with our location, opening hours, or table reservations? Ask me anything!",
       suggestions: INITIAL_SUGGESTIONS,
       timestamp: formatTime(),
     },
@@ -116,7 +106,6 @@ export function Chatbot() {
     setInputText("");
     setIsTyping(true);
 
-    // Prepare current cart context
     const cartSummary: CartContextSummary = {
       itemCount,
       subtotal,
@@ -127,7 +116,6 @@ export function Chatbot() {
       })),
     };
 
-    // Simulate natural thinking/typing delay
     setTimeout(() => {
       const response: BotResponse = getChatbotResponse(query, cartSummary);
 
@@ -135,8 +123,7 @@ export function Chatbot() {
         id: `bot-${Date.now()}`,
         sender: "bot",
         text: response.text,
-        dishes: response.dishes,
-        action: response.action,
+        action: response.action as any,
         actionLabel: response.actionLabel,
         suggestions: response.suggestions,
         timestamp: formatTime(),
@@ -152,37 +139,23 @@ export function Chatbot() {
       {
         id: `reset-${Date.now()}`,
         sender: "bot",
-        text: "Conversation refreshed! How can I assist you today with Amaya's coastal menu?",
+        text: "Conversation refreshed! How can I assist you today with Amaya's restaurant details?",
         suggestions: INITIAL_SUGGESTIONS,
         timestamp: formatTime(),
       },
     ]);
   };
 
-  const handleAddToCart = (product: Product) => {
-    addItem(product);
-    setAddedMap((prev) => ({ ...prev, [product.id]: true }));
-    setTimeout(() => {
-      setAddedMap((prev) => ({ ...prev, [product.id]: false }));
-    }, 1400);
-  };
-
   const handleActionClick = (action?: string) => {
     if (!action) return;
-    if (action === "open_cart") {
-      openCart();
-    } else if (action === "open_reservations") {
+    if (action === "open_reservations") {
       router.push("/reservations");
-      setIsOpen(false);
-    } else if (action === "open_menu") {
-      router.push("/menu");
       setIsOpen(false);
     } else if (action === "open_whatsapp") {
       window.open(whatsappUrl, "_blank");
     }
   };
 
-  // Helper to render bold markdown (**text**) and newlines cleanly
   const renderFormattedText = (text: string) => {
     return text.split("\n").map((line, lineIdx) => {
       if (!line.trim()) {
@@ -206,7 +179,6 @@ export function Chatbot() {
     });
   };
 
-  // Current active suggestions from the latest bot message
   const lastBotMessage = [...messages].reverse().find((m) => m.sender === "bot");
   const activeSuggestions = lastBotMessage?.suggestions ?? INITIAL_SUGGESTIONS;
 
@@ -214,11 +186,10 @@ export function Chatbot() {
     <>
       {/* Floating Launcher / Trigger */}
       <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 flex items-end gap-3">
-        {/* Welcome callout bubble on first load */}
         {showCallout && !isOpen && (
           <div className="hidden sm:flex items-center gap-2 rounded-2xl bg-white px-3.5 py-2.5 shadow-xl border border-orange-100 text-xs font-semibold text-slate-800 animate-in fade-in slide-in-from-bottom-2 duration-300">
             <span className="flex h-2 w-2 rounded-full bg-orange-500 animate-ping" />
-            <span>Habari! Craving Swahili food? Ask me! 🍛</span>
+            <span>Habari! Have a question about our restaurant? Ask me! 🍛</span>
             <button
               onClick={() => setShowCallout(false)}
               className="ml-1 text-slate-400 hover:text-slate-600"
@@ -241,7 +212,6 @@ export function Chatbot() {
           ) : (
             <>
               <MessageCircle size={28} className="transition-transform group-hover:scale-110" />
-              {/* Pulse notification dot */}
               <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-4 w-4 bg-orange-500 border-2 border-white" />
@@ -251,7 +221,6 @@ export function Chatbot() {
         </button>
       </div>
 
-      {/* Mobile Backdrop overlay (when opened on small screens) */}
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
@@ -260,7 +229,6 @@ export function Chatbot() {
         />
       )}
 
-      {/* Chat Window */}
       {isOpen && (
         <div
           role="dialog"
@@ -270,9 +238,14 @@ export function Chatbot() {
           {/* Header */}
           <div className="flex h-16 shrink-0 items-center justify-between border-b border-gray-100 bg-gradient-to-r from-slate-900 to-slate-800 px-4 sm:px-5 text-white">
             <div className="flex items-center gap-3">
-              <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-white shadow-sm ring-2 ring-white/20">
-                <Bot size={22} />
-                <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-emerald-400 ring-1 ring-slate-900" />
+              <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white shadow-sm ring-2 ring-white/20">
+                <Image
+                  src="/logo.png"
+                  alt="Amaya's Swahili Kitchen Logo"
+                  fill
+                  className="object-cover"
+                />
+                <span className="absolute bottom-0 right-0 z-10 h-2.5 w-2.5 rounded-full bg-emerald-400 ring-1 ring-slate-900" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
@@ -327,67 +300,6 @@ export function Chatbot() {
                   >
                     <div className="space-y-1">{renderFormattedText(message.text)}</div>
 
-                    {/* Dish Cards in Bot Message */}
-                    {message.dishes && message.dishes.length > 0 && (
-                      <div className="mt-3 space-y-2 border-t border-gray-100 pt-2.5">
-                        {message.dishes.map((dish) => {
-                          const isAdded = !!addedMap[dish.id];
-                          return (
-                            <div
-                              key={dish.id}
-                              className="flex items-center gap-2.5 rounded-xl border border-gray-100 bg-gray-50/80 p-2 transition-all hover:bg-white hover:shadow-xs"
-                            >
-                              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-gray-200">
-                                <Image
-                                  src={dish.image}
-                                  alt={dish.name}
-                                  fill
-                                  sizes="48px"
-                                  className="object-cover"
-                                />
-                              </div>
-                              <div className="min-w-0 flex-1">
-                                <div className="flex items-center gap-1">
-                                  <p className="truncate font-display font-bold text-slate-900 text-xs sm:text-sm">
-                                    {dish.name}
-                                  </p>
-                                  {dish.spicy && (
-                                    <Flame size={12} className="shrink-0 text-red-600" />
-                                  )}
-                                </div>
-                                <p className="font-display font-black text-red-700 text-xs">
-                                  {formatKes(dish.price)}
-                                </p>
-                              </div>
-                              <button
-                                onClick={() => handleAddToCart(dish)}
-                                type="button"
-                                aria-label={`Add ${dish.name} to cart`}
-                                className={`shrink-0 inline-flex items-center gap-1 rounded-lg px-2.5 py-1.5 text-xs font-bold transition-all active:scale-95 ${
-                                  isAdded
-                                    ? "bg-emerald-600 text-white"
-                                    : "bg-orange-500 text-white hover:bg-orange-600 shadow-xs"
-                                }`}
-                              >
-                                {isAdded ? (
-                                  <>
-                                    <Check size={13} />
-                                    <span>Added</span>
-                                  </>
-                                ) : (
-                                  <>
-                                    <Plus size={13} />
-                                    <span>Add</span>
-                                  </>
-                                )}
-                              </button>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    )}
-
-                    {/* Action Button inside message */}
                     {message.action && message.actionLabel && (
                       <div className="mt-3 pt-2 border-t border-gray-100">
                         <button
@@ -406,7 +318,6 @@ export function Chatbot() {
               );
             })}
 
-            {/* Typing Indicator */}
             {isTyping && (
               <div className="flex items-center gap-2 rounded-2xl rounded-bl-xs bg-white border border-gray-200/80 px-4 py-3 w-fit shadow-xs">
                 <span className="flex h-2 w-2 rounded-full bg-orange-400 animate-bounce [animation-delay:-0.3s]" />
@@ -447,7 +358,7 @@ export function Chatbot() {
               type="text"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              placeholder="Ask about dishes, hours, delivery..."
+              placeholder="Ask about hours, location, reservations..."
               className="flex-1 rounded-xl border border-gray-200 bg-gray-50/80 px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-orange-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-200"
             />
             <button
