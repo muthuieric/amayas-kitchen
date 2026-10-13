@@ -272,7 +272,7 @@ export default function ReservationsPage() {
             {/* Dinner */}
             <div>
               <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1.5">
-                Dinner Service (6:00 PM – 10:00 PM)
+                Dinner Service (6:00 PM – 1:00 PM)
               </span>
               <div className="flex flex-wrap gap-2">
                 {DINNER_SLOTS.map((slot) => (
@@ -347,7 +347,7 @@ export default function ReservationsPage() {
             <Input
               id="phone"
               name="phone"
-              placeholder="e.g. +254 712 345 678"
+              placeholder="e.g. +254 718 414667"
               className="h-11 text-sm rounded-xl"
             />
           </div>

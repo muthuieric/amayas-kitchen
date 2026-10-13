@@ -12,17 +12,17 @@ export const metadata = {
 };
 
 const ADDRESS = "Titan Complex, Chaka Road, Kilimani, Nairobi";
-const PHONE_DISPLAY = "+254 712 345 678";
-const PHONE_TEL = "+254712345678";
-const WHATSAPP_NUMBER = "254712345678";
+const PHONE_DISPLAY = "+254718 414667";
+const PHONE_TEL = "+254718 414667";
+const WHATSAPP_NUMBER = "254718 414667";
 const DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
   ADDRESS,
 )}`;
 
 const HOURS = [
-  { day: "Monday - Friday", time: "10:00 AM - 10:00 PM" },
-  { day: "Saturday", time: "10:00 AM - 10:00 PM" },
-  { day: "Sunday", time: "11:00 AM - 9:00 PM" },
+  { day: "Monday - Friday", time: "9:00 AM - 9:00 PM" },
+  { day: "Saturday", time: "9:00 AM - 9:00 PM" },
+  { day: "Sunday", time: "9:00 AM - 9:00 PM" },
 ];
 
 export default function ContactPage() {
@@ -205,7 +205,7 @@ export default function ContactPage() {
                 </p>
                 <div className="mt-2.5 flex gap-2">
                   <Link
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/amayas.swahilikitchen/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
@@ -214,7 +214,7 @@ export default function ContactPage() {
                     <Instagram size={18} />
                   </Link>
                   <Link
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/p/Amayas-Swahili-Kitchen-61565742148330/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Facebook"

@@ -239,7 +239,7 @@ export function getChatbotResponse(
     )
   ) {
     return {
-      text: "🕒 **Operating Hours**:\n• **Monday – Saturday**: 10:00 AM – 10:00 PM\n• **Sunday**: 11:00 AM – 9:00 PM\n\n*Note: Kitchen closes 30 minutes before closing time. Last delivery orders accepted 15 minutes before closing.*",
+      text: "🕒 **Operating Hours**:\n• **Monday – Saturday**: 9:00 AM – 9:00 PM\n• **Sunday**: 9:00 AM – 9:00 PM\n\n*Note: Kitchen closes 30 minutes before closing time. Last delivery orders accepted 15 minutes before closing.*",
       suggestions: ["📍 Where are you located?", "🛵 How to order delivery", "🔥 Popular dishes"],
     };
   }
@@ -266,7 +266,7 @@ export function getChatbotResponse(
       text: "📅 **Table Reservations**:\nYou can reserve a table online using our reservation page! Choose your date, preferred dining time, and number of guests. Tables are held for 15 minutes past reservation time.",
       action: "open_reservations",
       actionLabel: "Go to Reservation Page",
-      suggestions: ["🕒 Opening hours", "🔥 View Menu", "Call +254 712 345 678"],
+      suggestions: ["🕒 Opening hours", "🔥 View Menu", "Call +254 718 414667"],
     };
   }
 
@@ -275,17 +275,17 @@ export function getChatbotResponse(
     /\b(cater|catering|event|party|corporate|office|wedding|bulk order)\b/i.test(query)
   ) {
     return {
-      text: "🎉 **Catering & Events**:\nYes! We cater for office lunches, birthday parties, weddings, and family gatherings. From live jiko mshikaki stations to huge pots of coastal biryani and pilau.\n\nPlease contact us on WhatsApp at **+254 712 345 678** at least 1 week in advance for custom menu planning and quotes.",
+      text: "🎉 **Catering & Events**:\nYes! We cater for office lunches, birthday parties, weddings, and family gatherings. From live jiko mshikaki stations to huge pots of coastal biryani and pilau.\n\nPlease contact us on WhatsApp at **+254 718 414667** at least 1 week in advance for custom menu planning and quotes.",
       action: "open_whatsapp",
       actionLabel: "Discuss Catering on WhatsApp",
-      suggestions: ["📞 Call +254 712 345 678", "🍛 Browse Dishes", "🕒 Hours"],
+      suggestions: ["📞 Call +254 718 414667", "🍛 Browse Dishes", "🕒 Hours"],
     };
   }
 
   // 21. Phone / Contact
   if (/\b(phone|call|number|contact|reach|telephone)\b/i.test(query)) {
     return {
-      text: "📞 **Contact Amaya's Kitchen**:\n• **Phone**: +254 712 345 678\n• **WhatsApp**: +254 712 345 678\n• **Address**: Titan Complex, Chaka Road, Kilimani, Nairobi\n\nWe are available daily from 10:00 AM!",
+      text: "📞 **Contact Amaya's Kitchen**:\n• **Phone**: +254 718 414667\n• **WhatsApp**: +254 718 414667\n• **Address**: Titan Complex, Chaka Road, Kilimani, Nairobi\n\nWe are available daily from 9:00 AM!",
       suggestions: ["🛵 Delivery Info", "📅 Book a Table", "🔥 Popular Dishes"],
     };
   }

@@ -14,7 +14,7 @@ export function Footer() {
           </p>
           <div className="mt-4 flex items-center gap-2.5">
             <Link
-              href="https://instagram.com"
+              href="https://www.instagram.com/amayas.swahilikitchen/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -50,11 +50,11 @@ export function Footer() {
             </li>
             <li>
               <Link
-                href="tel:+254712345678"
+                href="tel:+254718 414667"
                 className="flex items-center gap-2.5 hover:text-orange-600 transition-colors"
               >
                 <Phone size={16} className="shrink-0 text-orange-500" />
-                <span>+254 712 345 678</span>
+                <span>+254 718 414667</span>
               </Link>
             </li>
           </ul>
@@ -66,9 +66,9 @@ export function Footer() {
             <li className="flex items-start gap-2.5">
               <Clock size={16} className="mt-0.5 shrink-0 text-orange-500" />
               <span>
-                Mon – Sat: 10:00am – 10:00pm
+                Mon – Sat: 9:00am – 9:00pm
                 <br />
-                Sunday: 11:00am – 9:00pm
+                Sunday: 9:00am – 9:00pm
               </span>
             </li>
           </ul>

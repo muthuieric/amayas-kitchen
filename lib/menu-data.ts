@@ -30,7 +30,7 @@ export interface Product {
   prepTime?: string;
 }
 
-export const WHATSAPP_NUMBER = "254712345678"; // TODO: replace with the real number
+export const WHATSAPP_NUMBER = "254 718 414667"; // TODO: replace with the real number
 
 export const MENU_ITEMS: Product[] = [
   {

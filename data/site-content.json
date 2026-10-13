@@ -1,23 +1,23 @@
 {
   "reviews": [
     {
-      "name": "Juma K.",
-      "review": "The best pilau in Nairobi, hands down. Tastes just like my bibi used to make. The delivery was quick and the food arrived hot. Will be ordering again very soon!",
+      "name": "Wanda Lita.",
+      "review": "Amazing experience! Our table enjoyed quite a few appetizers and food dishes. Everyone was genuinely happy!",
       "avatar": "/avatars/juma.jpg"
     },
     {
-      "name": "Wanjiru M.",
-      "review": "I'm obsessed with the coconut fish curry! It's so rich and flavorful. The chapatis are soft and perfect for dipping. Amaya's is my new go-to for Swahili food.",
+      "name": "Martin Matúšů.",
+      "review": "Took the fishy with ugali - very tasty. first tried with fork and knife - no point in trying that, one can only use hands.. even got a fresh juice with no added sugar..",
       "avatar": "/avatars/wanjiru.jpg"
     },
     {
-      "name": "David O.",
-      "review": "Finally, authentic mshikaki that's actually grilled properly. The smokiness is incredible. It's a bit pricey but worth it for the quality. Highly recommend.",
+      "name": "Sahal H.",
+      "review": "Great food, although is was a delivery, the food was packaged very well. Their Mahamri and Samosas where delicious. You can tell they have used good and clean oils to fry the food as it was not tasting like the usual greasy and burn taste.d.",
       "avatar": "/avatars/david.jpg"
     },
     {
-      "name": "Aisha B.",
-      "review": "Karibu chakula indeed! The hospitality is felt even through their delivery service. The food is always fresh and delicious. A true taste of the coast in Kilimani.",
+      "name": "Claire Naserian.",
+      "review": "My new go to Biriyani spot. Fresh food, great taste, great service.",
       "avatar": "/avatars/aisha.jpg"
     }
   ],
@@ -28,7 +28,7 @@
     },
     {
       "question": "What are your delivery hours and areas?",
-      "answer": "We deliver daily from 10:00am to 9:30pm within a 10km radius of our Kilimani kitchen. Delivery fees vary based on location."
+      "answer": "We deliver daily from 9:00am to 9:00pm within a 10km radius of our Kilimani kitchen. Delivery fees vary based on location."
     },
     {
       "question": "Are there vegetarian/vegan options available?",
