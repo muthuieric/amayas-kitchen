@@ -1,16 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Flame, Heart, Leaf, Soup,  MapPin } from "lucide-react";
+import { buildMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  title: "Our Story - Amaya's Swahili Kitchen",
+export const metadata = buildMetadata({
+  title: "Our Story - Coastal Kenyan Cooking with Heart",
   description:
-    "Amaya's Swahili Kitchen brings the aromatic, coconut-rich flavors of the Kenyan coast to Kilimani, Nairobi - traditional recipes, fresh ingredients, warm hospitality.",
-  openGraph: {
-    title: "Our Story - Amaya's Swahili Kitchen",
-    description: "Coastal Kenyan cooking, made with tradition and heart, in the middle of Nairobi.",
-  },
-};
+    "Amaya's Swahili Kitchen brings the aromatic, coconut-rich flavors of the Kenyan coast to Kilimani, Nairobi - traditional recipes, fresh local ingredients and warm Swahili hospitality.",
+  path: "/about",
+});
 
 const VALUES = [
   {

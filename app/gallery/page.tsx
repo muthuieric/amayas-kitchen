@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
+import { buildMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  title: "Gallery - Amaya's Swahili Kitchen",
+export const metadata = buildMetadata({
+  title: "Gallery - Real Photos of Our Swahili Dishes",
   description:
-    "A look inside Amaya's Swahili Kitchen - real photos of our coastal dishes, grills, sides and the moments we cook for.",
-};
+    "A look inside Amaya's Swahili Kitchen - real photos of our coastal dishes, grills, sides and the moments we cook for in Kilimani, Nairobi.",
+  path: "/gallery",
+});
 
 // All real photos served from /public (amaya-01.jpg … amaya-18.jpg).
 const PHOTOS = Array.from({ length: 18 }, (_, i) => {

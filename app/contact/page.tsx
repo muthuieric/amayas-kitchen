@@ -1,19 +1,18 @@
 import Link from "next/link";
 import { Clock, Facebook, Instagram, MapPin, Phone, Navigation, ShoppingBag } from "lucide-react";
+import { buildMetadata } from "@/lib/metadata";
+import { restaurantSchema, breadcrumbSchema, jsonLdString } from "@/lib/structured-data";
 
-export const metadata = {
-  title: "Contact & Location - Amaya's Swahili Kitchen",
+export const metadata = buildMetadata({
+  title: "Contact & Location - Kilimani, Nairobi",
   description:
-    "Visit Amaya's Swahili Kitchen at Titan Complex, Chaka Road, Kilimani, Nairobi. Call, message on WhatsApp, or get directions.",
-  openGraph: {
-    title: "Contact - Amaya's Swahili Kitchen",
-    description: "Find us in Kilimani - hours, directions and phone.",
-  },
-};
+    "Visit Amaya's Swahili Kitchen at Titan Complex, Chaka Road, Kilimani, Nairobi. Call, message on WhatsApp, get directions, or order delivery via Uber Eats, Bolt Food and Glovo.",
+  path: "/contact",
+});
 
 const ADDRESS = "Titan Complex, Chaka Road, Kilimani, Nairobi";
-const PHONE_DISPLAY = "+254718 414667";
-const PHONE_TEL = "+254718 414667";
+const PHONE_DISPLAY = "+254 718 414667";
+const PHONE_TEL = "+254718414667";
 const WHATSAPP_NUMBER = "254718 414667";
 const DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
   ADDRESS,
@@ -26,8 +25,23 @@ const HOURS = [
 ];
 
 export default function ContactPage() {
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      restaurantSchema(),
+      breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Contact", path: "/contact" },
+      ]),
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdString(graph) }}
+      />
       <section className="border-b bg-gradient-to-b from-secondary/50 to-background">
         <div className="mx-auto max-w-4xl px-4 py-12 text-center sm:px-6 sm:py-16 md:py-20">
           <span className="text-xs font-bold uppercase tracking-widest text-accent">Karibu</span>

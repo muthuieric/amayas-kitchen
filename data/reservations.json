@@ -1,16 +1,16 @@
 [
   {
-    "id": "res_1791882363714_tihz7",
-    "bookingRef": "AK-3860",
+    "id": "res_1791888799121_irkir",
+    "bookingRef": "AK-7488",
     "name": "nm",
-    "phone": "+254706123513",
+    "phone": "nm",
     "date": "2026-10-13",
     "time": "19:00",
     "guests": 2,
     "seatingZone": "Courtyard",
     "specialRequests": "n",
     "status": "confirmed",
-    "createdAt": "2026-10-13T09:06:03.714Z"
+    "createdAt": "2026-10-13T10:53:19.121Z"
   },
   {
     "id": "res_1791882289669_ek1ln",
@@ -37,6 +37,32 @@
     "specialRequests": "Birthday",
     "status": "confirmed",
     "createdAt": "2026-10-13T08:57:32.910Z"
+  },
+  {
+    "id": "res_1791888788663_ih24a",
+    "bookingRef": "AK-6914",
+    "name": "Eric Muthui",
+    "phone": "0706123513",
+    "date": "2026-10-13",
+    "time": "19:00",
+    "guests": 2,
+    "seatingZone": "Courtyard",
+    "specialRequests": "m",
+    "status": "confirmed",
+    "createdAt": "2026-10-13T10:53:08.664Z"
+  },
+  {
+    "id": "res_1791882363714_tihz7",
+    "bookingRef": "AK-3860",
+    "name": "nm",
+    "phone": "+254706123513",
+    "date": "2026-10-13",
+    "time": "19:00",
+    "guests": 2,
+    "seatingZone": "Courtyard",
+    "specialRequests": "n",
+    "status": "confirmed",
+    "createdAt": "2026-10-13T09:06:03.714Z"
   },
   {
     "id": "res_1791882250320_dhopk",

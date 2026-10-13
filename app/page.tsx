@@ -6,12 +6,26 @@ import { Hero } from "@/components/Hero";
 import { MENU_ITEMS } from "@/lib/menu-data";
 import { Reviews } from "@/components/Reviews";
 import { Faq } from "@/components/Faq";
+import { OrderDelivery } from "@/components/OrderDelivery";
+import { buildMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: "Amaya's Swahili Kitchen - Authentic Coastal Food, Kilimani",
   description:
-    "Dine at our authentic Swahili restaurant in Kilimani, Nairobi. Book your table for pilau, biryani, mshikaki, and coconut curries.",
-};
+    "Dine at our authentic Swahili restaurant in Kilimani, Nairobi, or order pilau, biryani, mshikaki and coconut curries delivered via Uber Eats, Bolt Food and Glovo. Book your table today.",
+  path: "/",
+  keywords: [
+    "Swahili restaurant Nairobi",
+    "Swahili food Kilimani",
+    "restaurant in Kilimani",
+    "best pilau in Nairobi",
+    "biryani Kilimani",
+    "food delivery Kilimani",
+    "Uber Eats Kilimani",
+    "Bolt Food Nairobi",
+    "Glovo Nairobi",
+  ],
+});
 
 export default function HomePage() {
   // Grab a popular image from your existing data to use as the showcase photo
@@ -19,6 +33,9 @@ const showcaseImage = "/amaya-07.jpg";
   return (
     <>
       <Hero />
+
+      {/* Dine In / Get It Delivered — Uber Eats, Bolt Food, Glovo */}
+      <OrderDelivery />
 
       {/* NEW SECTION: The Amaya Experience */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
