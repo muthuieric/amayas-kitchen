@@ -1,12 +1,11 @@
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   /* config options here */
+// };
+
+// module.exports = nextConfig;
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  /* config options here */
-  output: "export",
-  images: {
-    unoptimized: true, // Required for static exports
-  },
-};
+const nextConfig = {};
 
 module.exports = nextConfig;
-
-
