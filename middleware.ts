@@ -1,24 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ADMIN_COOKIE_NAME, verifyJWT } from "@/lib/auth";
 
-/**
- * Next.js 16 renamed Middleware → Proxy (same functionality).
- * See node_modules/next/dist/docs/01-app/01-getting-started/16-proxy.md
- */
-export async function proxy(request: NextRequest) {
+export const runtime = "experimental-edge";
+
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const isLoginPage = pathname === "/admin/login";
 
   // Check for admin token in cookies
   const token = request.cookies.get(ADMIN_COOKIE_NAME)?.value;
-  const session = token ? await verifyJWT(token) : null;
+  const session = token ? verifyJWT(token) : null;
   const isAuthenticated = !!session;
 
   // 1. Protected Admin Routes (require valid JWT session)
   if (pathname.startsWith("/admin") && !isLoginPage) {
     if (!isAuthenticated) {
       const loginUrl = new URL("/admin/login", request.url);
-      // Remember where the user was trying to go
       loginUrl.searchParams.set("from", pathname);
       return NextResponse.redirect(loginUrl);
     }
