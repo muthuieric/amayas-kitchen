@@ -184,6 +184,7 @@ export function CartDrawer() {
                         width={80}
                         height={80}
                         sizes="72px"
+                        loading="lazy"
                         className="h-16 w-16 sm:h-18 sm:w-18 shrink-0 rounded-xl object-cover bg-gray-100"
                       />
                       <div className="min-w-0 flex-1">

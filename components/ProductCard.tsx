@@ -6,6 +6,7 @@ import { Check, Flame, Plus, Sparkles, Utensils } from "lucide-react";
 import type { Product } from "@/lib/menu-data";
 import { formatKes } from "@/lib/format";
 import { useCart } from "@/lib/cart-context";
+import { blurDataUrls } from "@/lib/blur-data";
 
 export function ProductCard({
   product,
@@ -47,6 +48,9 @@ export function ProductCard({
           width={800}
           height={600}
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          placeholder="blur"
+          blurDataURL={blurDataUrls[product.image] ?? ""}
+          loading="lazy"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         {/* Badges Overlay */}

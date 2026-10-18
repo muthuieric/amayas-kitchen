@@ -6,6 +6,7 @@ import { CartDrawer } from "@/components/CartDrawer";
 import { MobileOrderBar } from "@/components/MobileOrderBar";
 import { Chatbot } from "@/components/Chatbot";
 import { PwaRegister } from "@/components/PwaRegister";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { CartProvider } from "@/lib/cart-context";
 import { siteConfig } from "@/lib/site";
 import { rootGraph, jsonLdString } from "@/lib/structured-data";
@@ -28,6 +29,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteConfig.url,
   },
+  /** Google Search Console ownership verification (set GOOGLE_SITE_VERIFICATION in .env). */
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? {
+        other: {
+          "google-site-verification": process.env.GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
   robots: {
     index: true,
     follow: true,
@@ -92,6 +101,8 @@ export default function RootLayout({
       <body
         className="font-sans bg-gray-50 text-slate-900 flex flex-col min-h-screen overflow-x-hidden antialiased"
       >
+        {/* Google Analytics 4 — pageviews tracked on every client-side navigation. */}
+        <GoogleAnalytics />
         {/* Site-wide JSON-LD entity graph: Organization, WebSite, Restaurant
             (with hours, geo, ordering actions), Delivery service, Menu, FAQ.
             This powers classic rich results AND generative/AI answers. */}

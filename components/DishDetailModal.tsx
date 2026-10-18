@@ -6,6 +6,7 @@ import { Check, Clock, Flame, Minus, Plus, Utensils, X } from "lucide-react";
 import type { Product } from "@/lib/menu-data";
 import { formatKes } from "@/lib/format";
 import { useCart, type CartItemOption } from "@/lib/cart-context";
+import { blurDataUrls } from "@/lib/blur-data";
 
 interface DishDetailModalProps {
   product: Product | null;
@@ -115,6 +116,9 @@ export function DishDetailModal({ product, onClose }: DishDetailModalProps) {
             alt={product.name}
             fill
             sizes="(max-width: 640px) 100vw, 500px"
+            placeholder="blur"
+            blurDataURL={blurDataUrls[product.image] ?? ""}
+            loading="lazy"
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

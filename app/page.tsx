@@ -67,6 +67,7 @@ const showcaseImage = "/amaya-07.jpg";
               width={800}
               height={1000}
               sizes="(min-width: 1024px) 50vw, 100vw"
+              priority
               className="h-auto w-full object-contain transition-transform duration-700 hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
