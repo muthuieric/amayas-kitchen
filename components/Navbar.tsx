@@ -9,6 +9,7 @@ import { useCart } from "@/lib/cart-context";
 
 const NAV_LINKS = [
   { to: "/", label: "Home" },
+  { to: "/menu", label: "Menu" },
   { to: "/gallery", label: "Gallery" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
@@ -19,6 +20,12 @@ export function Navbar() {
   const pathname = usePathname();
   const { itemCount, openCart } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Track mount to avoid hydration mismatch on active-link styling
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -76,7 +83,7 @@ export function Navbar() {
             className="hidden md:flex md:items-center md:gap-1"
           >
             {NAV_LINKS.map(({ to, label }) => {
-              const active = to === "/" ? pathname === "/" : pathname.startsWith(to);
+              const active = mounted && (to === "/" ? pathname === "/" : pathname.startsWith(to));
               return (
                 <Link
                   key={to}

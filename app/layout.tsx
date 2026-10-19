@@ -100,6 +100,7 @@ export default function RootLayout({
       <head />
       <body
         className="font-sans bg-gray-50 text-slate-900 flex flex-col min-h-screen overflow-x-hidden antialiased"
+        suppressHydrationWarning
       >
         {/* Google Analytics 4 — pageviews tracked on every client-side navigation. */}
         <GoogleAnalytics />

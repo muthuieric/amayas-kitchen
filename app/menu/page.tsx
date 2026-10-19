@@ -1,6 +1,7 @@
-import { MenuSection } from "@/components/MenuSection";
+import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import { menuSchema, breadcrumbSchema, jsonLdString } from "@/lib/structured-data";
+import { MenuGallery } from "@/components/MenuGallery";
 
 export const metadata = buildMetadata({
   title: "Menu - Swahili Pilau, Biryani, Mshikaki & Grills",
@@ -35,17 +36,22 @@ export default function MenuPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdString(graph) }}
       />
+
+      {/* Hero header */}
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <span className="text-xs font-bold uppercase tracking-widest text-accent">The Menu</span>
-        <h1 className="mt-2 font-display text-3xl font-black sm:text-5xl">
+        <span className="text-xs font-bold uppercase tracking-widest text-accent">
+          The Menu
+        </span>
+        <h1 className="mt-2 font-display text-3xl font-black sm:text-5xl leading-tight">
           Every dish, made fresh
         </h1>
         <p className="mt-2.5 max-w-xl text-sm sm:text-base text-muted-foreground">
-          Tap any dish to add it to your cart, then check out on WhatsApp for delivery to your
-          location.
+          Tap any menu image below to view it larger and read the prices clearly.
+          Order via WhatsApp, Uber Eats, Bolt Food or Glovo.
         </p>
       </div>
-      <MenuSection />
+
+      <MenuGallery />
     </div>
   );
 }
