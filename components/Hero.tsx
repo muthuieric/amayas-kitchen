@@ -57,7 +57,7 @@ export function Hero() {
           </span>
           <span className="flex items-center gap-2">
             <Clock size={16} className="shrink-0 text-orange-400" />
-            <span>Open daily 9:00 AM – 9:00 PM</span>
+            <span>Open daily 9:00 AM – 9:30 PM</span>
           </span>
         </div>
       </div>

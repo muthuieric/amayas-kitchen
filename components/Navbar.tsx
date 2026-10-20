@@ -238,7 +238,7 @@ export function Navbar() {
             </div>
             <div className="flex items-center gap-2">
               <Clock size={14} className="shrink-0 text-orange-500" />
-              <span>Open Daily: 9:00 AM – 9:00 PM</span>
+              <span>Open Daily: 9:00 AM – 9:30 PM</span>
             </div>
           </div>
         </div>

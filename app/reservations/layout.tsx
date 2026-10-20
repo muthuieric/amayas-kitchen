@@ -5,7 +5,7 @@ import { breadcrumbSchema, jsonLdString } from "@/lib/structured-data";
 export const metadata = buildMetadata({
   title: "Reserve a Table - Book Your Swahili Dining Experience",
   description:
-    "Book a table at Amaya's Swahili Kitchen in Kilimani, Nairobi. Reserve for lunch or dinner, choose your occasion, and we'll have your table ready. Open daily 9:00 AM – 9:00 PM.",
+    "Book a table at Amaya's Swahili Kitchen in Kilimani, Nairobi. Reserve for lunch or dinner, choose your occasion, and we'll have your table ready. Open daily 9:00 AM – 9:30 PM.",
   path: "/reservations",
   keywords: [
     "book a table Kilimani",

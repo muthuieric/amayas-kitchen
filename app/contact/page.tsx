@@ -20,9 +20,9 @@ const DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${enc
 )}`;
 
 const HOURS = [
-  { day: "Monday - Friday", time: "9:00 AM - 9:00 PM" },
-  { day: "Saturday", time: "9:00 AM - 9:00 PM" },
-  { day: "Sunday", time: "9:00 AM - 9:00 PM" },
+  { day: "Monday - Friday", time: "9:00 AM - 9:30 PM" },
+  { day: "Saturday", time: "9:00 AM - 9:30 PM" },
+  { day: "Sunday", time: "9:00 AM - 9:30 PM" },
 ];
 
 export default function ContactPage() {

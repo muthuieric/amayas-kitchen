@@ -62,8 +62,8 @@ export const siteConfig = {
     longitude: 36.7847,
   },
 
-  openingHours: { opens: "09:00", closes: "21:00" },
-  hoursDisplay: "Daily 9:00 AM – 9:00 PM",
+  openingHours: { opens: "09:00", closes: "21:30" },
+  hoursDisplay: "Daily 9:00 AM – 9:30 PM",
   dayOfWeek: [
     "Monday",
     "Tuesday",

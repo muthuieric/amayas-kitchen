@@ -133,7 +133,7 @@ export function getChatbotResponse(
     )
   ) {
     return {
-      text: "🕒 **Operating Hours**:\n• **Monday – Saturday**: 9:00 AM – 9:00 PM\n• **Sunday**: 9:00 AM – 9:00 PM\n\n*Note: Kitchen closes 30 minutes before closing time.*",
+      text: "🕒 **Operating Hours**:\n• **Monday – Saturday**: 9:00 AM – 9:30 PM\n• **Sunday**: 9:00 AM – 9:30 PM\n\n*Note: Kitchen closes 30 minutes before closing time.*",
       suggestions: ["📍 Where are you located?", "🛵 How does delivery work?", "💬 WhatsApp Us"],
     };
   }
