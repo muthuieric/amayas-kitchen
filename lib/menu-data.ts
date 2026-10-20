@@ -24,7 +24,7 @@ export interface Product {
   spicy?: boolean;
   popular?: boolean;
   vegetarian?: boolean;
-  spiceLevel?: 0 | 1 | 2 | 3; // 0 = Mild/Sweet, 1 = Gentle Warmth, 2 = Medium Coastal Kick, 3 = Pili Pili Fire
+  spiceLevel?: 0 | 1 | 2 | 3; // 0 = Mild/Sweet, 1 = Gentle Warmth, 2 = Medium Kick, 3 = Pili Pili Fire
   portion?: string;
   ingredients?: string[];
   prepTime?: string;
@@ -76,7 +76,7 @@ export const MENU_ITEMS: Product[] = [
   {
     id: "samaki-wa-kupaka",
     name: "Samaki wa Kupaka",
-    description: "Whole grilled fish smothered in creamy coconut curry — a true coastal treasure.",
+    description: "Whole grilled fish smothered in creamy coconut curry — a true Swahili treasure.",
     price: 1200,
     category: "Swahili Classics",
     image: "/amaya-04.jpg",
@@ -84,12 +84,12 @@ export const MENU_ITEMS: Product[] = [
     spiceLevel: 2,
     portion: "Serves 1-2 (Whole Fish)",
     prepTime: "25-30 mins",
-    ingredients: ["Whole Red Snapper", "Fresh Coastal Coconut Cream", "Tamarind (Ukwaju)", "Turmeric", "Crushed Chili"],
+    ingredients: ["Whole Red Snapper", "Fresh Coconut Cream", "Tamarind (Ukwaju)", "Turmeric", "Crushed Chili"],
   },
   {
     id: "mshikaki",
     name: "Mshikaki (3 pcs)",
-    description: "Char-grilled beef skewers marinated overnight in coastal spices, with lime & onions.",
+    description: "Char-grilled beef skewers marinated overnight in aromatic spices, with lime & onions.",
     price: 450,
     category: "Grills",
     image: "/amaya-05.jpg",
@@ -110,7 +110,7 @@ export const MENU_ITEMS: Product[] = [
     spiceLevel: 2,
     portion: "Half Chicken",
     prepTime: "25 mins",
-    ingredients: ["Country Chicken", "Coastal Pili Pili Glaze", "Lemon Juice", "Rock Salt & Crushed Pepper"],
+    ingredients: ["Country Chicken", "Signature Pili Pili Glaze", "Lemon Juice", "Rock Salt & Crushed Pepper"],
   },
   {
     id: "chapati",
@@ -149,7 +149,7 @@ export const MENU_ITEMS: Product[] = [
     spiceLevel: 0,
     portion: "4 Mahamri + Chai Pot",
     prepTime: "10 mins",
-    ingredients: ["Coconut Milk Dough", "Aromatic Green Cardamom", "Yeast & Light Sugar", "Coastal Spiced Tea"],
+    ingredients: ["Coconut Milk Dough", "Aromatic Green Cardamom", "Yeast & Light Sugar", "Spiced Swahili Tea"],
   },
 ];
 

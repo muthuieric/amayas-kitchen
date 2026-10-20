@@ -22,7 +22,7 @@ export function Hero() {
         </span>
 
         <h1 className="mt-4 max-w-2xl font-display text-3xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.15]">
-          Authentic Coastal Flavors in the Heart of Kilimani
+          Authentic Swahili Flavors in the Heart of Kilimani
         </h1>
 
         <p className="mt-3.5 max-w-lg text-sm leading-relaxed text-gray-200 sm:text-base md:text-lg">

@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Flame, Heart, Leaf, Soup,  MapPin } from "lucide-react";
+import { Heart, Leaf, Soup, MapPin } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata({
-  title: "Our Story - Coastal Kenyan Cooking with Heart",
+  title: "Our Story - Amaya's Swahili Kitchen",
   description:
-    "Amaya's Swahili Kitchen brings the aromatic, coconut-rich flavors of the Kenyan coast to Kilimani, Nairobi - traditional recipes, fresh local ingredients and warm Swahili hospitality.",
+    "Amaya's Swahili Kitchen brings authentic Swahili cuisine to Kilimani, Nairobi - traditional recipes, fresh local ingredients and warm Swahili hospitality.",
   path: "/about",
 });
 
@@ -14,12 +14,12 @@ const VALUES = [
   {
     icon: Leaf,
     title: "Fresh, Local Ingredients",
-    body: "We source from Nairobi's markets daily - coconuts, tamarind, dhania, coastal spices - no shortcuts, no compromises.",
+    body: "We source from Nairobi's markets daily - coconuts, tamarind, dhania, spices - no shortcuts, no compromises.",
   },
   {
     icon: Soup,
     title: "Traditional Recipes",
-    body: "Every dish follows recipes passed down through generations on the Kenyan coast.",
+    body: "Every dish follows recipes passed down through generations.",
   },
   {
     icon: Heart,
@@ -46,13 +46,12 @@ export default function AboutPage() {
             Our Story
           </span>
           <h1 className="mt-4 font-display text-3xl font-black leading-tight sm:text-5xl lg:text-6xl">
-            A little taste of the <span className="text-accent">Kenyan coast</span>, right in
+            A little taste of East Africa, right in
             Kilimani.
           </h1>
 
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg">
-            Amaya's Swahili Kitchen was born from a simple wish - to bring the aromatic,
-            coconut-rich cooking of Mombasa, Lamu and Malindi to the heart of Nairobi.
+            Discover the rich and vibrant flavors of East Africa at Amaya's Swahili Kitchen.
           </p>
         </div>
       </section>
@@ -60,15 +59,12 @@ export default function AboutPage() {
       <section className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-16 md:py-20">
         <article className="space-y-5 font-sans text-sm leading-relaxed text-foreground/90 sm:text-base md:text-lg">
           <p>
-            Along the Kenyan coast, food is never rushed. Spices like cardamom,
-            cloves, cumin and pili pili are toasted whole, then ground fresh -
-            because that's how our grandmothers did it.
+            We specialize in authentic Swahili cuisine, bringing you a delightful fusion of spices,
+            fresh ingredients, and traditional recipes passed down through generations.
           </p>
           <p>
-            When we moved inland, we missed those flavors more than anything. The
-            warm, aromatic cooking of a coastal kitchen - hearty, comforting and
-            made with care. So we built a kitchen that could bring all of that
-            home, serving a variety of Swahili dishes made fresh daily.
+            Whether you're craving the savory taste of biryani, the aromatic allure of pilau, or
+            the sweet indulgence of mahamri, our dishes are crafted with love and care.
           </p>
           <p className="border-l-4 border-primary pl-4 py-1 font-display text-lg sm:text-xl font-bold italic text-foreground">
             "Chakula ni upendo." Food is love. And we cook every plate like we're feeding our own
@@ -113,7 +109,7 @@ export default function AboutPage() {
     Come visit us in Kilimani
   </h2>
   <p className="mx-auto mt-2.5 max-w-lg text-sm sm:text-base text-muted-foreground">
-    Join us at Titan Complex, Chaka Road for authentic coastal cooking, warm hospitality, and the best vibes in Nairobi.
+    Join us at Titan Complex, Chaka Road for authentic Swahili cooking, warm hospitality, and the best vibes in Nairobi.
   </p>
   <Link
     href="/contact"

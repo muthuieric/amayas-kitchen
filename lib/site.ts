@@ -26,12 +26,11 @@ export const siteConfig = {
   language: "en-KE",
 
   description:
-    "Authentic Swahili and coastal Kenyan cuisine in Kilimani, Nairobi. Dine in, book a table, or order a variety of Swahili dishes via Uber Eats, Bolt Food and Glovo.",
+    "Authentic Swahili cuisine in Kilimani, Nairobi. Dine in, book a table, or order a variety of Swahili dishes via Uber Eats, Bolt Food and Glovo.",
 
   keywords: [
     "Swahili restaurant Nairobi",
     "Swahili food Kilimani",
-    "coastal Kenyan cuisine Nairobi",
     "Swahili dishes Nairobi",
     "restaurant in Kilimani",
     "Titan Complex Chaka Road food",
@@ -75,7 +74,7 @@ export const siteConfig = {
     "Sunday",
   ],
 
-  cuisines: ["Swahili", "Kenyan", "Coastal", "African", "Seafood"],
+  cuisines: ["Swahili", "Kenyan", "African", "Seafood"],
   priceRange: "KSh 100–KSh 1200",
   currenciesAccepted: "KES",
   paymentAccepted: "Cash, M-Pesa, Card",

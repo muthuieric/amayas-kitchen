@@ -140,7 +140,7 @@ export default function ReservationsPage() {
           Reserve Your Dining Experience
         </h1>
         <p className="mt-2 text-sm text-slate-600 sm:text-base max-w-xl">
-          Join us for authentic coastal flavors, charcoal grills, and heartfelt hospitality in Kilimani, Nairobi.
+          Join us for authentic Swahili flavors, charcoal grills, and heartfelt hospitality in Kilimani, Nairobi.
         </p>
       </div>
 

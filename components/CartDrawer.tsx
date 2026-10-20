@@ -115,7 +115,7 @@ export function CartDrawer() {
             </div>
             <p className="font-display text-lg font-black text-slate-900">Your cart is empty</p>
             <p className="max-w-xs text-sm text-slate-600">
-              Add some authentic coastal delicacies from our Kilimani kitchen!
+              Add some authentic Swahili delicacies from our Kilimani kitchen!
             </p>
             <Link
               href="/menu"
@@ -252,7 +252,7 @@ export function CartDrawer() {
               {quickAddRecommendations.length > 0 && (
                 <div className="py-3">
                   <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
-                    Pair with coastal sides:
+                    Pair with Swahili sides:
                   </p>
                   <div className="flex gap-2">
                     {quickAddRecommendations.map((rec) => (

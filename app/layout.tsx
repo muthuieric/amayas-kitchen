@@ -7,6 +7,7 @@ import { MobileOrderBar } from "@/components/MobileOrderBar";
 import { Chatbot } from "@/components/Chatbot";
 import { PwaRegister } from "@/components/PwaRegister";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { Analytics } from "@vercel/analytics/next";
 import { CartProvider } from "@/lib/cart-context";
 import { siteConfig } from "@/lib/site";
 import { rootGraph, jsonLdString } from "@/lib/structured-data";
@@ -104,6 +105,8 @@ export default function RootLayout({
       >
         {/* Google Analytics 4 — pageviews tracked on every client-side navigation. */}
         <GoogleAnalytics />
+        {/* Vercel Web Analytics — counts visitors and page views after deployment. */}
+        <Analytics />
         {/* Site-wide JSON-LD entity graph: Organization, WebSite, Restaurant
             (with hours, geo, ordering actions), Delivery service, Menu, FAQ.
             This powers classic rich results AND generative/AI answers. */}

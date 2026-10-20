@@ -12,7 +12,7 @@ export function Footer() {
             Amaya's <span className="text-red-700">Swahili Kitchen</span>
           </p>
           <p className="mt-2.5 max-w-xs text-xs sm:text-sm leading-relaxed text-slate-600">
-            Authentic coastal cooking from the heart of Kilimani. Karibu chakula!
+            Authentic Swahili cooking from the heart of Kilimani. Karibu chakula!
           </p>
           <div className="mt-4 flex items-center gap-2.5">
             <Link

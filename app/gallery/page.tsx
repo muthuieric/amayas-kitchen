@@ -6,7 +6,7 @@ import { GalleryGrid } from "@/components/GalleryGrid";
 export const metadata = buildMetadata({
   title: "Gallery - Real Photos of Our Swahili Dishes",
   description:
-    "A look inside Amaya's Swahili Kitchen - real photos of our coastal dishes, grills, sides and the moments we cook for in Kilimani, Nairobi.",
+    "A look inside Amaya's Swahili Kitchen - real photos of our Swahili dishes, grills, sides and the moments we cook for in Kilimani, Nairobi.",
   path: "/gallery",
 });
 
@@ -27,7 +27,7 @@ export default function GalleryPage() {
           Our Gallery
         </span>
         <h1 className="mt-1 font-display text-3xl font-black sm:text-4xl md:text-5xl text-slate-900">
-          A taste of the coast, in pictures
+          Swahili flavors, in pictures
         </h1>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
           Every plate is made fresh in our Kilimani kitchen - pilau, coconut

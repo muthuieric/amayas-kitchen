@@ -10,16 +10,15 @@ import { OrderDelivery } from "@/components/OrderDelivery";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata({
-  title: "Amaya's Swahili Kitchen - Authentic Coastal Food, Kilimani",
+  title: "Amaya's Swahili Kitchen - Authentic Swahili Food, Kilimani",
   description:
-    "Dine at our authentic Swahili restaurant in Kilimani, Nairobi — a variety of coastal dishes made fresh daily. Order delivery via Uber Eats, Bolt Food and Glovo. Book your table today.",
+    "Dine at our authentic Swahili restaurant in Kilimani, Nairobi — a variety of Swahili dishes made fresh daily. Order delivery via Uber Eats, Bolt Food and Glovo. Book your table today.",
   path: "/",
   keywords: [
     "Swahili restaurant Nairobi",
     "Swahili food Kilimani",
     "restaurant in Kilimani",
     "Swahili dishes Nairobi",
-    "coastal food Kilimani",
     "food delivery Kilimani",
     "Uber Eats Kilimani",
     "Bolt Food Nairobi",
@@ -48,11 +47,11 @@ const showcaseImage = "/amaya-07.jpg";
             </div>
             
             <h2 className="mt-3 font-display text-3xl font-black sm:text-4xl md:text-5xl leading-tight text-slate-900">
-              Authentic Coastal Flavors in the Heart of Kilimani
+              Authentic Swahili Flavors in the Heart of Kilimani
             </h2>
             
             <p className="mt-5 text-base text-slate-600 leading-relaxed sm:text-lg">
-              Escape the city rush and step into a warm, inviting atmosphere inspired by the Kenyan coast. 
+              Escape the city rush and step into a warm, inviting atmosphere inspired by Swahili tradition. 
               At Amaya's, we combine generation-old family recipes with fresh, locally sourced ingredients 
               to bring you the true taste of Swahili hospitality.
             </p>

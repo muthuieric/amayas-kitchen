@@ -97,12 +97,12 @@ export function getChatbotResponse(
   //    specific dish-name inquiries) → just "a variety" + WhatsApp Us.
   //    We deliberately never advertise specific dishes in the chatbot.
   if (
-    /\b(menu|food|dishes|dish|eat|meal|serve|serving|cuisine|swahili|coastal|popular|recommend|recommendation|best seller|bestseller|signature|famous|top dishes|what should i eat|specialty|favorites|spicy|chilli|pili pili|hot|pepper|mild|vegetarian|vegan|pilau|pilao|biryani|biriani|samaki|fish|seafood|mbuzi|goat|nyama|beef|chicken|mshikaki|grill|grills|bbq|chapati|viazi|mahamri|mandazi|chai|dessert|sweet|sweets|breakfast|price|prices|cost|halal)\b/i.test(
+    /\b(menu|food|dishes|dish|eat|meal|serve|serving|cuisine|swahili|popular|recommend|recommendation|best seller|bestseller|signature|famous|top dishes|what should i eat|specialty|favorites|spicy|chilli|pili pili|hot|pepper|mild|vegetarian|vegan|pilau|pilao|biryani|biriani|samaki|fish|seafood|mbuzi|goat|nyama|beef|chicken|mshikaki|grill|grills|bbq|chapati|viazi|mahamri|mandazi|chai|dessert|sweet|sweets|breakfast|price|prices|cost|halal)\b/i.test(
       query
     )
   ) {
     return {
-      text: "We serve a **variety of Swahili dishes** — coastal classics, grills, and more, all made fresh daily. The selection changes, so message us on WhatsApp and we'll share today's available dishes and prices right away.",
+      text: "We serve a **variety of Swahili dishes** — Swahili classics, grills, and more, all made fresh daily. The selection changes, so message us on WhatsApp and we'll share today's available dishes and prices right away.",
       ...WHATSAPP_CTA,
       suggestions: [
         "🛵 How does delivery work?",

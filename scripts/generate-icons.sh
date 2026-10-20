@@ -38,7 +38,7 @@ convert -size 1200x630 gradient:'#F7EBD9-#E9D6B8' \
   \( -background none -fill '#B3231C' -font DejaVu-Sans-Bold -pointsize 46 -gravity center \
      -size 1040x80 caption:'SWAHILI KITCHEN' \) -gravity center -geometry +0+50 -composite \
   \( -background none -fill '#5A4632' -font DejaVu-Sans-Oblique -pointsize 34 -gravity center \
-     -size 900x60 caption:'Authentic Swahili & Coastal Cuisine · Kilimani, Nairobi' \) -gravity center -geometry +0+120 -composite \
+     -size 900x60 caption:'Authentic Swahili Cuisine · Kilimani, Nairobi' \) -gravity center -geometry +0+120 -composite \
   \( -background none -fill '#5A4632' -font DejaVu-Sans-Bold -pointsize 32 -gravity center \
      -size 900x60 caption:'Dine In · Uber Eats · Bolt Food · Glovo' \) -gravity center -geometry +0+175 -composite \
   -strip -quality 90 public/opengraph-image.png

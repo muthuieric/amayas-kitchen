@@ -15,7 +15,7 @@ interface DishDetailModalProps {
 
 const AVAILABLE_ADDONS = [
   { id: "kachumbari", name: "Fresh Kachumbari Salad", price: 50 },
-  { id: "pilipili", name: "Homemade Coastal Pili Pili", price: 30 },
+  { id: "pilipili", name: "Homemade Swahili Pili Pili", price: 30 },
   { id: "ukwaju", name: "Tangy Tamarind Dip (Ukwaju)", price: 50 },
   { id: "lime", name: "Fresh Lime Wedge", price: 0 },
 ];
@@ -86,8 +86,8 @@ export function DishDetailModal({ product, onClose }: DishDetailModalProps) {
 
   const spiceLabels: Record<number, { text: string; color: string }> = {
     0: { text: "Mild & Gentle", color: "text-emerald-700 bg-emerald-50 border-emerald-200" },
-    1: { text: "Gentle Coastal Warmth", color: "text-amber-700 bg-amber-50 border-amber-200" },
-    2: { text: "Medium Coastal Kick", color: "text-orange-700 bg-orange-50 border-orange-200" },
+    1: { text: "Gentle Swahili Warmth", color: "text-amber-700 bg-amber-50 border-amber-200" },
+    2: { text: "Medium Swahili Kick", color: "text-orange-700 bg-orange-50 border-orange-200" },
     3: { text: "Pili Pili Fire 🔥", color: "text-red-700 bg-red-50 border-red-200" },
   };
 
@@ -193,7 +193,7 @@ export function DishDetailModal({ product, onClose }: DishDetailModalProps) {
           {product.ingredients && product.ingredients.length > 0 && (
             <div className="pt-4">
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                Key Coastal Ingredients
+                Key Swahili Ingredients
               </h3>
               <div className="mt-2 flex flex-wrap gap-1.5">
                 {product.ingredients.map((ing) => (

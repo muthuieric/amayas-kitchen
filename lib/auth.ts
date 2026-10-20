@@ -4,7 +4,7 @@
  */
 
 export const ADMIN_COOKIE_NAME = "admin_session";
-const DEFAULT_JWT_SECRET = "amayas-kitchen-secret-key-coastal-dining-2024-secure-token";
+const DEFAULT_JWT_SECRET = "amayas-kitchen-secret-key-swahili-dining-2024-secure-token";
 export const DEFAULT_ADMIN_PASSWORD = "AmayaAdmin2024!";
 
 export interface AdminJWTPayload {

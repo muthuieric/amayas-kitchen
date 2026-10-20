@@ -84,15 +84,15 @@ components:
 # Amaya's Swahili Kitchen — UX & Design Specification
 
 ## Overview
-Amaya's Swahili Kitchen delivers authentic coastal Kenyan dining and takeaway in Kilimani, Nairobi. 
-The experience is rooted in *Ukarimu wa Pwani* (warm coastal hospitality): rich aroma of cardamom, saffron, and coconut, paired with modern, effortless digital hospitality.
+Amaya's Swahili Kitchen delivers authentic Swahili dining and takeaway in Kilimani, Nairobi. 
+The experience is rooted in *Ukarimu wa Pwani* (warm Swahili hospitality): rich aroma of cardamom, saffron, and coconut, paired with modern, effortless digital hospitality.
 
 ## Senior UX Principles
-1. **Zero-Friction Discovery**: Diners must find, inspect, customize, and order their desired coastal dish within 3 clicks or 10 seconds.
+1. **Zero-Friction Discovery**: Diners must find, inspect, customize, and order their desired Swahili dish within 3 clicks or 10 seconds.
 2. **Thumb-Zone Ergonomics**: On mobile devices, all primary actions (ordering, opening cart, adjusting quantities, confirming booking) reside within natural thumb reach.
 3. **Progressive Disclosure**: High-level clarity first (dish name, price, spice tag), with deeper culinary context (ingredients, pairing, notes) available via interactive quick-view.
 4. **Context-Aware Feedback**: Every state transition (adding to cart, filtering, booking submission) provides tactile feedback with zero ambiguity.
-5. **No AI-Purple Clichés**: Warm terracotta, saffron gold, deep coastal slate, and fresh WhatsApp emerald. Clean, grounded, authentic.
+5. **No AI-Purple Clichés**: Warm terracotta, saffron gold, deep slate, and fresh WhatsApp emerald. Clean, grounded, authentic.
 
 ## Layout & Spatial System
 - Responsive container: max-width 72rem (1152px) with horizontal padding fluid between 16px (mobile) and 24px (desktop).
