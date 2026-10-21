@@ -88,33 +88,6 @@ const showcaseImage = "/amaya-07.jpg";
 
       <Reviews />
       <Faq />
-
-      {/* SEO Content: Additional keyword-rich content about Amayas Swahili Kitchen */}
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-24 bg-white">
-        <h2 className="text-3xl font-black font-display text-slate-900 mb-8 text-center">
-          About Amayas Swahili Kitchen — Nairobi&rsquo;s Authentic Swahili Restaurant
-        </h2>
-        <div className="grid lg:grid-cols-3 gap-8">
-          <div className="col-span-1 lg:col-span-1">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">Authentic Swahili Cuisine in Kilimani</h3>
-            <p className="text-slate-600 leading-relaxed mb-4">
-              Welcome to Amayas Swahili Kitchen, Nairobi&rsquo;s premier destination for authentic Swahili food. Located in the heart of Kilimani at Titan Complex, Chaka Road, our restaurant brings you the rich flavors of the Swahili coast — from fragrant pilau and biryani to juicy nyama choma and fresh seafood dishes. Every recipe is passed down through generations and prepared with fresh, locally sourced ingredients.
-            </p>
-          </div>
-          <div className="col-span-1 lg:col-span-1">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">Dine In, Delivery &amp; Catering</h3>
-            <p className="text-slate-600 leading-relaxed mb-4">
-              Whether you&rsquo;re looking to dine in at our Kilimani restaurant, order Swahili food delivery via Uber Eats, Bolt Food, or Glovo, or book our catering services for your next event, Amayas Swahili Kitchen has you covered. We are open daily from 7:00 AM to 9:30 PM, serving breakfast, lunch, and dinner with the warm hospitality the Swahili coast is famous for.
-            </p>
-          </div>
-          <div className="col-span-1 lg:col-span-1">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">Why Choose Amayas?</h3>
-            <p className="text-slate-600 leading-relaxed mb-4">
-              From our signature Swahili dishes to our welcoming atmosphere, Amayas Swahili Kitchen is more than just a restaurant — it&rsquo;s a celebration of Kenyan coastal culture. Visit us at Titan Complex, Chaka Road, Kilimani, Nairobi, or order online for delivery across Nairobi. Experience the true taste of Swahili cuisine today.
-            </p>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

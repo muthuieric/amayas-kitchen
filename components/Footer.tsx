@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Clock, MapPin, Phone, ShoppingBag } from "lucide-react";
 import { FacebookIcon, InstagramIcon, TikTokIcon } from "@/components/icons/social-icons";
-import { Link as LinkIcon } from "lucide-react";
 
 export function Footer() {
   return (
@@ -43,24 +42,6 @@ export function Footer() {
               className="grid h-11 w-11 place-items-center rounded-full bg-gray-100 text-slate-600 transition-colors hover:bg-orange-500 hover:text-white active:scale-95"
             >
               <TikTokIcon size={18} />
-            </Link>
-            <Link
-              href="https://x.com/amayaswahilikitchen"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="X"
-              className="grid h-11 w-11 place-items-center rounded-full bg-gray-100 text-slate-600 transition-colors hover:bg-orange-500 hover:text-white active:scale-95"
-            >
-              <LinkIcon size={18} />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/company/amayas-swahili-kitchen"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="grid h-11 w-11 place-items-center rounded-full bg-gray-100 text-slate-600 transition-colors hover:bg-orange-500 hover:text-white active:scale-95"
-            >
-              <LinkIcon size={18} />
             </Link>
           </div>
         </div>

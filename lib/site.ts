@@ -86,9 +86,6 @@ export const siteConfig = {
     instagram: "https://www.instagram.com/amayas.swahilikitchen/",
     facebook: "https://www.facebook.com/p/Amayas-Swahili-Kitchen-61565742148330/",
     tiktok: "https://www.tiktok.com/@amayas.swahilikitchen",
-    x: "https://x.com/amayaswahilikitchen",
-    linkedin: "https://www.linkedin.com/company/amayas-swahili-kitchen",
-    youtube: "https://www.youtube.com/@amayaswahilikitchen",
   },
 
   /** Delivery partners — used for both UI links and OrderAction structured data. */
