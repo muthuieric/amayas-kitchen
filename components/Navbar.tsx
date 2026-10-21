@@ -66,14 +66,14 @@ export function Navbar() {
             <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-gray-200 bg-white shadow-xs">
               <Image
                 src="/logo.png"
-                alt="Amaya's Swahili Kitchen Logo"
+                alt="Amayas Swahili Kitchen Logo"
                 fill
                 priority
                 className="object-cover"
               />
             </div>
             <span className="font-display font-black tracking-tight text-slate-900 text-sm sm:text-base leading-tight">
-              Amaya's <span className="text-red-700">Swahili Kitchen</span>
+              Amayas <span className="text-red-700">Swahili Kitchen</span>
             </span>
           </Link>
 
@@ -155,13 +155,13 @@ export function Navbar() {
             <div className="relative h-8 w-8 overflow-hidden rounded-full border border-gray-200 bg-white">
               <Image
                 src="/logo.png"
-                alt="Amaya's Swahili Kitchen Logo"
+                alt="Amayas Swahili Kitchen Logo"
                 fill
                 className="object-cover"
               />
             </div>
             <span className="font-display font-black text-sm text-slate-900">
-              Amaya's <span className="text-red-700">Kitchen</span>
+              Amayas <span className="text-red-700">Kitchen</span>
             </span>
           </div>
           <button
@@ -238,7 +238,7 @@ export function Navbar() {
             </div>
             <div className="flex items-center gap-2">
               <Clock size={14} className="shrink-0 text-orange-500" />
-              <span>Open Daily: 9:00 AM – 9:30 PM</span>
+              <span>Open Daily: 7:00 AM – 9:30 PM</span>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { MENU_ITEMS, CATEGORIES } from "@/lib/menu-data";
 import siteContent from "@/data/site-content.json";
 
 /**
- * JSON-LD structured data for Amaya's Swahili Kitchen.
+ * JSON-LD structured data for Amayas Swahili Kitchen.
  *
  * Three goals, one module:
  *  - SEO:  classic rich results (Restaurant, FAQ, Menu, BreadcrumbList).
@@ -215,7 +215,7 @@ export function deliveryServiceSchema() {
   return {
     "@type": "Service",
     "@id": `${siteConfig.url}/#delivery`,
-    name: "Delivery from Amaya's Swahili Kitchen",
+    name: "Delivery from Amayas Swahili Kitchen",
     serviceType: "Food delivery",
     provider: { "@id": ID.restaurant },
     areaServed: { "@type": "City", name: "Nairobi" },

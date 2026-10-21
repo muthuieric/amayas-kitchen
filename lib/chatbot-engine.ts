@@ -133,7 +133,7 @@ export function getChatbotResponse(
     )
   ) {
     return {
-      text: "🕒 **Operating Hours**:\n• **Monday – Saturday**: 9:00 AM – 9:30 PM\n• **Sunday**: 9:00 AM – 9:30 PM\n\n*Note: Kitchen closes 30 minutes before closing time.*",
+      text: "🕒 **Operating Hours**:\n• **Monday – Saturday**: 7:00 AM – 9:30 PM\n• **Sunday**: 7:00 AM – 9:30 PM\n\n*Note: Kitchen closes 30 minutes before closing time.*",
       suggestions: ["📍 Where are you located?", "🛵 How does delivery work?", "💬 WhatsApp Us"],
     };
   }
@@ -178,7 +178,7 @@ export function getChatbotResponse(
   // 21. Phone / Contact
   if (/\b(phone|call|number|contact|reach|telephone)\b/i.test(query)) {
     return {
-      text: "📞 **Contact Amaya's Kitchen**:\n• **Phone**: +254 718 414667\n• **WhatsApp**: +254 718 414667\n• **Address**: Titan Complex, Chaka Road, Kilimani, Nairobi\n\nWe are available daily from 9:00 AM!",
+      text: "📞 **Contact Amayas Kitchen**:\n• **Phone**: +254 718 414667\n• **WhatsApp**: +254 718 414667\n• **Address**: Titan Complex, Chaka Road, Kilimani, Nairobi\n\nWe are available daily from 7:00 AM!",
       suggestions: ["💬 WhatsApp Us", "📅 Book a Table", "🕒 Hours"],
     };
   }

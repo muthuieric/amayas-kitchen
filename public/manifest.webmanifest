@@ -1,6 +1,6 @@
 {
-  "name": "Amaya's Swahili Kitchen",
-  "short_name": "Amaya's",
+  "name": "Amayas Swahili Kitchen",
+  "short_name": "Amayas",
   "description": "Authentic Swahili Flavors in the Heart of Kilimani - pilau, biryani, mshikaki, coconut curries and more, delivered hot.",
   "id": "/",
   "start_url": "/",
@@ -43,7 +43,7 @@
       "name": "Book a Table",
       "short_name": "Reserve",
       "url": "/reservations",
-      "description": "Reserve a table at Amaya's"
+      "description": "Reserve a table at Amayas"
     }
   ]
 }

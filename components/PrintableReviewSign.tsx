@@ -292,7 +292,7 @@ export function PrintableReviewSign() {
       ctx.font = "italic 22px Georgia, serif";
       ctx.textAlign = "center";
       ctx.fillText("Thank you for choosing", 450, 1130);
-      ctx.fillText("Amaya's Swahili Kitchen!", 450, 1160);
+      ctx.fillText("Amayas Swahili Kitchen!", 450, 1160);
 
       ctx.fillStyle = BURGUNDY;
       ctx.beginPath();

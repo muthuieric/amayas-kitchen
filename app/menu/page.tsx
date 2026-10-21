@@ -6,7 +6,7 @@ import { MenuGallery } from "@/components/MenuGallery";
 export const metadata = buildMetadata({
   title: "Menu - Swahili Pilau, Biryani, Mshikaki & Grills",
   description:
-    "Browse Amaya's full Swahili menu: beef pilau, chicken biryani, mbuzi wet fry, samaki wa kupaka, mshikaki, chapati and more. Order via WhatsApp, Uber Eats, Bolt Food or Glovo.",
+    "Browse Amayas full Swahili menu: beef pilau, chicken biryani, mbuzi wet fry, samaki wa kupaka, mshikaki, chapati and more. Order via WhatsApp, Uber Eats, Bolt Food or Glovo.",
   path: "/menu",
   keywords: [
     "Swahili menu Nairobi",

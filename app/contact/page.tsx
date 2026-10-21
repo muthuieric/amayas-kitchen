@@ -7,7 +7,7 @@ import { restaurantSchema, breadcrumbSchema, jsonLdString } from "@/lib/structur
 export const metadata = buildMetadata({
   title: "Contact & Location - Kilimani, Nairobi",
   description:
-    "Visit Amaya's Swahili Kitchen at Titan Complex, Chaka Road, Kilimani, Nairobi. Call, message on WhatsApp, get directions, or order delivery via Uber Eats, Bolt Food and Glovo.",
+    "Visit Amayas Swahili Kitchen at Titan Complex, Chaka Road, Kilimani, Nairobi. Call, message on WhatsApp, get directions, or order delivery via Uber Eats, Bolt Food and Glovo.",
   path: "/contact",
 });
 
@@ -20,9 +20,9 @@ const DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${enc
 )}`;
 
 const HOURS = [
-  { day: "Monday - Friday", time: "9:00 AM - 9:30 PM" },
-  { day: "Saturday", time: "9:00 AM - 9:30 PM" },
-  { day: "Sunday", time: "9:00 AM - 9:30 PM" },
+  { day: "Monday - Friday", time: "7:00 AM - 9:30 PM" },
+  { day: "Saturday", time: "7:00 AM - 9:30 PM" },
+  { day: "Sunday", time: "7:00 AM - 9:30 PM" },
 ];
 
 export default function ContactPage() {
@@ -114,7 +114,7 @@ export default function ContactPage() {
 
               <div className="absolute inset-x-3 bottom-3 sm:inset-x-4 sm:bottom-4 flex items-center justify-between gap-2 rounded-xl bg-card/95 p-3 shadow-card backdrop-blur">
                 <div className="min-w-0">
-                  <p className="truncate font-display text-xs sm:text-sm font-black">Amaya's Kitchen</p>
+                  <p className="truncate font-display text-xs sm:text-sm font-black">Amayas Kitchen</p>
                   <p className="truncate text-[11px] sm:text-xs text-muted-foreground">{ADDRESS}</p>
                 </div>
                 <span className="inline-flex shrink-0 items-center gap-1 rounded-lg bg-primary px-2.5 py-1.5 sm:px-3 sm:py-2 text-xs font-bold text-primary-foreground">

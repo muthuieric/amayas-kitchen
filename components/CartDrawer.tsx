@@ -131,7 +131,7 @@ export function CartDrawer() {
             <div className="border-b border-gray-100 bg-gray-50/80 px-5 py-3">
               <div className="flex items-center gap-2 text-xs text-slate-600">
                 <Store size={14} className="text-orange-600" />
-                <span>Pickup from Amaya&apos;s Kilimani Kitchen</span>
+                <span>Pickup from Amayas Kilimani Kitchen</span>
               </div>
               <div className="mt-1 flex items-center gap-1.5 text-xs text-slate-600">
                 <Clock size={13} className="text-orange-600" />

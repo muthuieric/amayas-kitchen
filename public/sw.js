@@ -1,5 +1,5 @@
 /*
- * Amaya's Swahili Kitchen - minimal offline-first service worker.
+ * Amayas Swahili Kitchen - minimal offline-first service worker.
  * Dependency-free. Strategy:
  *   - Navigations: network-first, fall back to cached home when offline.
  *   - Static assets (_next/static, icons, images): stale-while-revalidate.

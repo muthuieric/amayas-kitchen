@@ -44,7 +44,7 @@ export default function ReservationsPage() {
   // nothing is stored anywhere).
   const whatsappUrl = (() => {
     const lines = [
-      "Habari Amaya's! I'd like to book a table from your website:",
+      "Habari Amayas! I'd like to book a table from your website:",
       "",
       `Name: ${name.trim() || "-"}`,
       phone.trim() ? `Phone: ${phone.trim()}` : null,
@@ -84,7 +84,7 @@ export default function ReservationsPage() {
           </span>
 
           <h1 className="mt-3 font-display text-2xl sm:text-3xl font-black text-slate-900">
-            Karibu Amaya&apos;s!
+            Karibu Amayas!
           </h1>
           <p className="mt-2 text-sm text-slate-600">
             Your booking details are ready, <strong>{name.trim()}</strong>. If WhatsApp did not open automatically, tap the button below — we will confirm your table there.

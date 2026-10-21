@@ -6,7 +6,7 @@ export const OG_IMAGE = {
   url: "/opengraph-image.png",
   width: 1200,
   height: 630,
-  alt: "Amaya's Swahili Kitchen — authentic Swahili cuisine in Kilimani, Nairobi",
+  alt: "Amayas Swahili Kitchen — authentic Swahili cuisine in Kilimani, Nairobi",
 };
 
 /**

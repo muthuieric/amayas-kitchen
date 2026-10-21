@@ -10,7 +10,7 @@ import { OrderDelivery } from "@/components/OrderDelivery";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata({
-  title: "Amaya's Swahili Kitchen - Authentic Swahili Food, Kilimani",
+  title: "Amayas Swahili Kitchen - Authentic Swahili Food, Kilimani",
   description:
     "Dine at our authentic Swahili restaurant in Kilimani, Nairobi — a variety of Swahili dishes made fresh daily. Order delivery via Uber Eats, Bolt Food and Glovo. Book your table today.",
   path: "/",
@@ -42,7 +42,7 @@ const showcaseImage = "/amaya-07.jpg";
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs font-bold uppercase tracking-widest text-orange-700">
-                The Amaya Experience
+                The Amayas Experience
               </span>
             </div>
             
@@ -52,7 +52,7 @@ const showcaseImage = "/amaya-07.jpg";
             
             <p className="mt-5 text-base text-slate-600 leading-relaxed sm:text-lg">
               Escape the city rush and step into a warm, inviting atmosphere inspired by Swahili tradition. 
-              At Amaya's, we combine generation-old family recipes with fresh, locally sourced ingredients 
+              At Amayas, we combine generation-old family recipes with fresh, locally sourced ingredients 
               to bring you the true taste of Swahili hospitality.
             </p>
             
@@ -62,7 +62,7 @@ const showcaseImage = "/amaya-07.jpg";
           <div className="relative w-full overflow-hidden rounded-3xl shadow-2xl">
             <Image
               src={showcaseImage}
-              alt="Amaya's Swahili Kitchen Experience"
+              alt="Amayas Swahili Kitchen Experience"
               width={800}
               height={1000}
               sizes="(min-width: 1024px) 50vw, 100vw"

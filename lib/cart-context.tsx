@@ -148,7 +148,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [items]);
 
   const whatsappUrl = useMemo(() => {
-    const greeting = "Habari Amaya's Kitchen! 🍛\n\nI would like to place an order:";
+    const greeting = "Habari Amayas Kitchen! 🍛\n\nI would like to place an order:";
     const itemLines = items.map((i) => {
       const optionsCost = (i.options || []).reduce((sum, opt) => sum + opt.price, 0);
       const totalItemPrice = (i.product.price + optionsCost) * i.quantity;

@@ -4,9 +4,9 @@ import { Heart, Leaf, Soup, MapPin } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata({
-  title: "Our Story - Amaya's Swahili Kitchen",
+  title: "Our Story - Amayas Swahili Kitchen",
   description:
-    "Amaya's Swahili Kitchen brings authentic Swahili cuisine to Kilimani, Nairobi - traditional recipes, fresh local ingredients and warm Swahili hospitality.",
+    "Amayas Swahili Kitchen brings authentic Swahili cuisine to Kilimani, Nairobi - traditional recipes, fresh local ingredients and warm Swahili hospitality.",
   path: "/about",
 });
 
@@ -51,7 +51,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg">
-            Discover the rich and vibrant flavors of East Africa at Amaya's Swahili Kitchen.
+            Discover the rich and vibrant flavors of East Africa at Amayas Swahili Kitchen.
           </p>
         </div>
       </section>
@@ -71,7 +71,7 @@ export default function AboutPage() {
             family.
           </p>
           <p>
-            Today, Amaya's serves Kilimani and the surrounding neighborhoods with fresh, traditional
+            Today, Amayas serves Kilimani and the surrounding neighborhoods with fresh, traditional
             Swahili cooking - a variety of dishes made from scratch every morning. Dine in with us,
             or order delivery via Uber Eats, Bolt Food and Glovo. Karibu sana.
           </p>

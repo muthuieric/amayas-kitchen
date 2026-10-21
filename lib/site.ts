@@ -1,5 +1,5 @@
 /**
- * Amaya's Swahili Kitchen — single source of truth for all business facts.
+ * Amayas Swahili Kitchen — single source of truth for all business facts.
  *
  * Everything here feeds BOTH the human-facing UI and the machine-facing
  * structured data (JSON-LD), metadata, sitemap and robots output. Keep the
@@ -16,9 +16,9 @@
 const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
 
 export const siteConfig = {
-  name: "Amaya's Swahili Kitchen",
-  shortName: "Amaya's",
-  legalName: "Amaya's Swahili Kitchen",
+  name: "Amayas Swahili Kitchen",
+  shortName: "Amayas",
+  legalName: "Amayas Swahili Kitchen",
   tagline: "A taste you'll remember",
   /** Absolute origin with no trailing slash. */
   url: (envUrl && envUrl.replace(/\/$/, "")) || "https://www.amayaskitchen.com",
@@ -34,7 +34,7 @@ export const siteConfig = {
     "Swahili dishes Nairobi",
     "restaurant in Kilimani",
     "Titan Complex Chaka Road food",
-    "Amaya's Swahili Kitchen",
+    "Amayas Swahili Kitchen",
     "Halal Kenyan restaurant",
     "food delivery Kilimani",
     "Uber Eats Kilimani",
@@ -62,8 +62,8 @@ export const siteConfig = {
     longitude: 36.7847,
   },
 
-  openingHours: { opens: "09:00", closes: "21:30" },
-  hoursDisplay: "Daily 9:00 AM – 9:30 PM",
+  openingHours: { opens: "07:00", closes: "21:30" },
+  hoursDisplay: "Daily 7:00 AM – 9:30 PM",
   dayOfWeek: [
     "Monday",
     "Tuesday",
@@ -113,7 +113,7 @@ export const siteConfig = {
   // General WhatsApp contact link (used by "WhatsApp Us" buttons). Delivery
   // itself is handled by Uber Eats / Bolt Food / Glovo — see `delivery` above.
   whatsappOrderUrl: `https://wa.me/254718414667?text=${encodeURIComponent(
-    "Habari Amaya's! I have a question, tafadhali.",
+    "Habari Amayas! I have a question, tafadhali.",
   )}`,
 } as const;
 

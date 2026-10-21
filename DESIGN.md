@@ -1,5 +1,5 @@
 ---
-name: Amaya's Swahili Kitchen Design System
+name: Amayas Swahili Kitchen Design System
 version: 1.0.0
 colors:
   primary: "#EA580C"
@@ -81,10 +81,10 @@ components:
     padding: 12px
 ---
 
-# Amaya's Swahili Kitchen — UX & Design Specification
+# Amayas Swahili Kitchen — UX & Design Specification
 
 ## Overview
-Amaya's Swahili Kitchen delivers authentic Swahili dining and takeaway in Kilimani, Nairobi. 
+Amayas Swahili Kitchen delivers authentic Swahili dining and takeaway in Kilimani, Nairobi. 
 The experience is rooted in *Ukarimu wa Pwani* (warm Swahili hospitality): rich aroma of cardamom, saffron, and coconut, paired with modern, effortless digital hospitality.
 
 ## Senior UX Principles

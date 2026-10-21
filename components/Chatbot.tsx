@@ -54,7 +54,7 @@ export function Chatbot() {
     {
       id: "initial-greeting",
       sender: "bot",
-      text: "Jambo na Karibu Amaya's Swahili Kitchen! 🍛\n\nI am **Amaya Assistant**. Need help with our location, opening hours, or table reservations? Ask me anything!",
+      text: "Jambo na Karibu Amayas Swahili Kitchen! 🍛\n\nI am **Amaya Assistant**. Need help with our location, opening hours, or table reservations? Ask me anything!",
       suggestions: INITIAL_SUGGESTIONS,
       timestamp: formatTime(),
     },
@@ -139,7 +139,7 @@ export function Chatbot() {
       {
         id: `reset-${Date.now()}`,
         sender: "bot",
-        text: "Conversation refreshed! How can I assist you today with Amaya's restaurant details?",
+        text: "Conversation refreshed! How can I assist you today with Amayas restaurant details?",
         suggestions: INITIAL_SUGGESTIONS,
         timestamp: formatTime(),
       },
@@ -241,7 +241,7 @@ export function Chatbot() {
               <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white shadow-sm ring-2 ring-white/20">
                 <Image
                   src="/logo.png"
-                  alt="Amaya's Swahili Kitchen Logo"
+                  alt="Amayas Swahili Kitchen Logo"
                   fill
                   className="object-cover"
                 />

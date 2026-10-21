@@ -6,7 +6,7 @@ import { GalleryGrid } from "@/components/GalleryGrid";
 export const metadata = buildMetadata({
   title: "Gallery - Real Photos of Our Swahili Dishes",
   description:
-    "A look inside Amaya's Swahili Kitchen - real photos of our Swahili dishes, grills, sides and the moments we cook for in Kilimani, Nairobi.",
+    "A look inside Amayas Swahili Kitchen - real photos of our Swahili dishes, grills, sides and the moments we cook for in Kilimani, Nairobi.",
   path: "/gallery",
 });
 
@@ -15,7 +15,7 @@ const PHOTOS = Array.from({ length: 18 }, (_, i) => {
   const n = i + 1;
   return {
     src: `/amaya-${String(n).padStart(2, "0")}.jpg`,
-    alt: `Amaya's Swahili Kitchen photo ${n}`,
+    alt: `Amayas Swahili Kitchen photo ${n}`,
   };
 });
 

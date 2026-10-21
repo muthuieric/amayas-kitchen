@@ -8,7 +8,7 @@ export function Hero() {
     <section className="relative overflow-hidden group">
       <Image
         src={heroImage}
-        alt="A spread of traditional Swahili dishes served at Amaya's Swahili Kitchen"
+        alt="A spread of traditional Swahili dishes served at Amayas Swahili Kitchen"
         fill
         priority
         sizes="100vw"
@@ -18,7 +18,7 @@ export function Hero() {
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-start px-4 py-14 sm:px-6 sm:py-28 lg:py-36">
         <span className="rounded-full bg-orange-500/20 border border-orange-500/30 px-3 py-1 text-xs font-bold uppercase tracking-widest text-orange-400 backdrop-blur-md">
-          Karibu Amaya's
+          Karibu Amayas
         </span>
 
         <h1 className="mt-4 max-w-2xl font-display text-3xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.15]">
@@ -57,7 +57,7 @@ export function Hero() {
           </span>
           <span className="flex items-center gap-2">
             <Clock size={16} className="shrink-0 text-orange-400" />
-            <span>Open daily 9:00 AM – 9:30 PM</span>
+            <span>Open daily 7:00 AM – 9:30 PM</span>
           </span>
         </div>
       </div>

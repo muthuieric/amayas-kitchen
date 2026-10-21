@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Generates the PWA icons for Amaya's Swahili Kitchen from public/icons/icon.svg.
+# Generates the PWA icons for Amayas Swahili Kitchen from public/icons/icon.svg.
 # Requires ImageMagick (`convert`). Run from the project root:  bash scripts/generate-pwa-icons.sh
 #
 set -euo pipefail

@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site";
 /**
  * Prominent "Dine In or Get It Delivered" conversion band.
  *
- * Shows the two ways to eat at Amaya's — at the restaurant or delivered via
+ * Shows the two ways to eat at Amayas — at the restaurant or delivered via
  * Uber Eats, Bolt Food and Glovo (plus direct WhatsApp). Paired with the
  * OrderAction structured data in lib/structured-data.ts, this makes our
  * ordering channels unambiguous to both customers and search/answer engines.
@@ -19,7 +19,7 @@ export function OrderDelivery() {
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-red-700">
-            Two Ways to Enjoy Amaya&apos;s
+            Two Ways to Enjoy Amayas
           </span>
           <h2 className="mt-2 font-display text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
             Dine in or get it delivered

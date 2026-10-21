@@ -9,7 +9,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:gap-10 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:py-12">
         <div>
           <p className="font-display text-lg font-black text-slate-900">
-            Amaya's <span className="text-red-700">Swahili Kitchen</span>
+            Amayas <span className="text-red-700">Swahili Kitchen</span>
           </p>
           <p className="mt-2.5 max-w-xs text-xs sm:text-sm leading-relaxed text-slate-600">
             Authentic Swahili cooking from the heart of Kilimani. Karibu chakula!
@@ -118,9 +118,9 @@ export function Footer() {
             <li className="flex items-start gap-2.5">
               <Clock size={16} className="mt-0.5 shrink-0 text-orange-500" />
               <span>
-                Mon – Sat: 9:00am – 9:30pm
+                Mon – Sat: 7:00am – 9:30pm
                 <br />
-                Sunday: 9:00am – 9:30pm
+                Sunday: 7:00am – 9:30pm
               </span>
             </li>
           </ul>
@@ -128,7 +128,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-gray-100 py-4 px-4 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} Amaya's Swahili Kitchen. All rights reserved.
+        © {new Date().getFullYear()} Amayas Swahili Kitchen. All rights reserved.
       </div>
     </footer>
   );

@@ -1,5 +1,5 @@
 /**
- * Product data layer for Amaya's Swahili Kitchen.
+ * Product data layer for Amayas Swahili Kitchen.
  *
  * TODO (backend integration):
  * - Replace `getProducts()` with a Supabase (PostgreSQL) query, e.g.
