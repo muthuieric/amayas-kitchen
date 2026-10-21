@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   category: "Restaurant",
   alternates: {
     canonical: siteConfig.url,
+    languages: {
+      "en-KE": siteConfig.url,
+    },
   },
   /** Google Search Console ownership verification (set GOOGLE_SITE_VERIFICATION in .env). */
   ...(process.env.GOOGLE_SITE_VERIFICATION
