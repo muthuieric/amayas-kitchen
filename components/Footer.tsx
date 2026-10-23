@@ -25,7 +25,7 @@ export function Footer() {
               <InstagramIcon size={18} />
             </Link>
             <Link
-              href="https://facebook.com"
+              href="https://www.facebook.com/p/Amayas-Swahili-Kitchen-61565742148330/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"

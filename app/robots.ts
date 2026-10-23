@@ -23,10 +23,25 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow,
       },
-      // Be explicit with the big answer/AI crawlers so our FAQ + menu data
-      // is eligible for generative answers (AEO / GEO).
+      // Googlebot-Image needs unrestricted access to brand icons and favicons
+      // so Google Search displays the custom brand favicon instead of the generic globe icon.
       {
-        userAgent: ["OAI-SearchBot", "ChatGPT-User", "GPTBot", "PerplexityBot", "Google-Extended"],
+        userAgent: "Googlebot-Image",
+        allow: ["/", "/favicon*", "/icon*", "/apple-icon*", "/logo.png"],
+        disallow: ["/admin"],
+      },
+      // Explicit access for AI answer engines and search bots (GEO/AEO).
+      {
+        userAgent: [
+          "OAI-SearchBot",
+          "ChatGPT-User",
+          "GPTBot",
+          "PerplexityBot",
+          "Google-Extended",
+          "ClaudeBot",
+          "Applebot-Extended",
+          "bingbot",
+        ],
         allow: "/",
         disallow,
       },

@@ -52,6 +52,10 @@ export function organizationSchema() {
       siteConfig.social.instagram,
       siteConfig.social.facebook,
       siteConfig.social.tiktok,
+      siteConfig.social.x,
+      siteConfig.social.linkedin,
+      siteConfig.social.youtube,
+      ...siteConfig.delivery.map((d) => d.url),
     ].filter(Boolean),
     contactPoint: [
       {
@@ -197,6 +201,10 @@ export function restaurantSchema() {
       siteConfig.social.instagram,
       siteConfig.social.facebook,
       siteConfig.social.tiktok,
+      siteConfig.social.x,
+      siteConfig.social.linkedin,
+      siteConfig.social.youtube,
+      ...siteConfig.delivery.map((d) => d.url),
     ].filter(Boolean),
     potentialAction,
     // AEO: content we explicitly allow answer engines to read aloud.
