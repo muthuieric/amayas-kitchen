@@ -21,7 +21,7 @@ export const siteConfig = {
   legalName: "Amayas Swahili Kitchen",
   tagline: "A taste you'll remember",
   /** Absolute origin with no trailing slash. */
-  url: (envUrl && envUrl.replace(/\/$/, "")) || "https://www.amayaskitchen.com",
+  url: (envUrl && envUrl.replace(/\/$/, "")) || "https://www.amayasswahilikitchen.co.ke",
   locale: "en_KE",
   language: "en-KE",
 
@@ -115,7 +115,7 @@ export const siteConfig = {
 
   // General WhatsApp contact link (used by "WhatsApp Us" buttons). Delivery
   // itself is handled by Uber Eats / Bolt Food / Glovo — see `delivery` above.
-  whatsappOrderUrl: `https://wa.me/254718414667?text=${encodeURIComponent(
+  whatsappOrderUrl: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "254718414667"}?text=${encodeURIComponent(
     "Habari Amayas! I have a question, tafadhali.",
   )}`,
 } as const;
