@@ -6,43 +6,57 @@
 
 User-agent: Googlebot
 Allow: /
-Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
+Disallow: /admin
+Disallow: /api/
+Disallow: /checkout
+Disallow: /cart
+Disallow: /_next/
+Disallow: /*?q=
+Disallow: /*?srsltid=
 
 User-agent: Googlebot-Image
-Allow: / /icon.png /favicon.ico /apple-icon.png /icon-192.png /icon-512.png /favicon-48.png /rounded_*
+Allow: /
+Allow: /icon.png
+Allow: /favicon.ico
+Allow: /apple-icon.png
+Allow: /icon-192.png
+Allow: /icon-512.png
+Allow: /favicon-48.png
+Allow: /favicon-32.png
+Allow: /favicon-16.png
+Allow: /favicon*
+Allow: /icon*
+Allow: /apple-icon*
+Allow: /logo.png
+Allow: /rounded_*
 Disallow: /admin
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /checkout
+Disallow: /cart
+Disallow: /_next/
+Disallow: /*?q=
+Disallow: /*?srsltid=
 
 User-agent: OAI-SearchBot
-Allow: /
-Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
-
 User-agent: ChatGPT-User
-Allow: /
-Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
-
 User-agent: GPTBot
-Allow: /
-Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
-
 User-agent: PerplexityBot
-Allow: /
-Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
-
 User-agent: Google-Extended
-Allow: /
-Disallow: /admin
-
 User-agent: ClaudeBot
-Allow: /
-Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
-
 User-agent: Applebot-Extended
-Allow: /
-Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
-
 User-agent: bingbot
 Allow: /
-Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
+Disallow: /admin
+Disallow: /api/
+Disallow: /checkout
+Disallow: /cart
+Disallow: /_next/
+Disallow: /*?q=
+Disallow: /*?srsltid=
 
 Sitemap: https://www.amayasswahilikitchen.co.ke/sitemap.xml
 Host: https://www.amayasswahilikitchen.co.ke

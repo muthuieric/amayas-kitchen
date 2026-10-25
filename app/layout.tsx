@@ -100,8 +100,8 @@ export default function RootLayout({
         className="font-sans bg-gray-50 text-slate-900 flex flex-col min-h-screen overflow-x-hidden antialiased"
         suppressHydrationWarning
       >
-        {/* Google Analytics 4 — official component from @next/third-parties. -->
-        {/* gaId defaults to env var NEXT_PUBLIC_GA_MEASUREMENT_ID or fallback 'G-XBSPMSMG8M'. -->
+        {/* Google Analytics 4 — official component from @next/third-parties. */}
+        {/* gaId defaults to env var NEXT_PUBLIC_GA_MEASUREMENT_ID or fallback 'G-XBSPMSMG8M'. */}
         <GoogleAnalytics
           gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XBSPMSMG8M"}
         />
