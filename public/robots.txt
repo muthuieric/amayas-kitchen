@@ -1,0 +1,48 @@
+# robots.txt — Amaya's Swahili Kitchen
+# Allow full crawling of marketing/content pages for Googlebot & Googlebot-Image.
+# Googlebot-Image is granted open access to the icon/favicon/asset directories
+# so Google Search renders the custom brand favicon/icon instead of the generic
+# globe placeholder.
+
+User-agent: Googlebot
+Allow: /
+Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
+
+User-agent: Googlebot-Image
+Allow: / /icon.png /favicon.ico /apple-icon.png /icon-192.png /icon-512.png /favicon-48.png /rounded_*
+Disallow: /admin
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
+
+User-agent: GPTBot
+Allow: /
+Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
+
+User-agent: bingbot
+Allow: /
+Disallow: /admin /api/ /checkout /cart /_next/ /*?q= /*?srsltid=
+
+Sitemap: https://www.amayasswahilikitchen.co.ke/sitemap.xml
+Host: https://www.amayasswahilikitchen.co.ke

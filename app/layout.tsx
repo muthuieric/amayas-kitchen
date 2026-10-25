@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -7,7 +7,6 @@ import { CartDrawer } from "@/components/CartDrawer";
 import { MobileOrderBar } from "@/components/MobileOrderBar";
 import { Chatbot } from "@/components/Chatbot";
 import { PwaRegister } from "@/components/PwaRegister";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { Analytics } from "@vercel/analytics/next";
 import { CartProvider } from "@/lib/cart-context";
 import { siteConfig } from "@/lib/site";
@@ -69,18 +68,9 @@ export const metadata: Metadata = {
     images: ["/twitter-image.png"],
   },
   icons: {
-    icon: [
-      { url: "/favicon-48.png", sizes: "48x48", type: "image/png" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    shortcut: [{ url: "/favicon-48.png", type: "image/png" }],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
-    other: [
-      { rel: "icon", url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { rel: "icon", url: "/icon-512.png", sizes: "512x512", type: "image/png" },
-    ],
+    icon: "/icon.png",
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
   },
   manifest: "/manifest.webmanifest",
   appleWebApp: {
@@ -110,28 +100,11 @@ export default function RootLayout({
         className="font-sans bg-gray-50 text-slate-900 flex flex-col min-h-screen overflow-x-hidden antialiased"
         suppressHydrationWarning
       >
-        {/* Google Analytics 4 */}
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XBSPMSMG8M"}`}
+        {/* Google Analytics 4 — official component from @next/third-parties. -->
+        {/* gaId defaults to env var NEXT_PUBLIC_GA_MEASUREMENT_ID or fallback 'G-XBSPMSMG8M'. -->
+        <GoogleAnalytics
+          gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XBSPMSMG8M"}
         />
-        <Script
-          id="google-analytics-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              window.gtag = gtag;
-              gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XBSPMSMG8M"}', {
-                page_path: window.location.pathname,
-              });
-            `,
-          }}
-        />
-        {/* Google Analytics 4 — pageviews tracked on every client-side navigation. */}
-        <GoogleAnalytics />
         {/* Vercel Web Analytics — counts visitors and page views after deployment. */}
         <Analytics />
         {/* Site-wide JSON-LD entity graph: Organization, WebSite, Restaurant
