@@ -67,11 +67,6 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: ["/twitter-image.png"],
   },
-  icons: {
-    icon: "/icon.png",
-    shortcut: "/favicon.ico",
-    apple: "/apple-icon.png",
-  },
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
@@ -95,7 +90,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-KE">
-      <head />
+      <head>
+        {/* Favicon with cache-busting query so browsers re-fetch after a stale
+            favicon cache. public/favicon.ico is the canonical brand favicon. */}
+        <link rel="icon" href="/favicon.ico?v=2" sizes="32x32 48x48" />
+        <link rel="icon" href="/icon.png?v=2" type="image/png" sizes="48x48" />
+        <link rel="shortcut icon" href="/favicon.ico?v=2" />
+        <link rel="apple-touch-icon" href="/apple-icon.png?v=2" sizes="180x180" />
+        {/* llms.txt discovery link for AI/answer engines (GEO/AEO). */}
+        <link rel="llms.txt" href="/llms.txt" />
+      </head>
       <body
         className="font-sans bg-gray-50 text-slate-900 flex flex-col min-h-screen overflow-x-hidden antialiased"
         suppressHydrationWarning

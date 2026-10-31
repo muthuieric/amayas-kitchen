@@ -13,7 +13,7 @@ BG="#F4E7D2"
 echo ">> favicon.ico (multi-size 16/32/48)"
 convert "$LOGO" -background none -density 384 \
   -define icon:auto-resize=256,128,64,48,32,16 \
-  "app/favicon.ico"
+  "public/favicon.ico"
 
 echo ">> icon-192.png & icon-512.png (PWA)"
 convert "$LOGO" -background "$BG" -gravity center -resize 192x192 -extent 192x192 -strip public/icon-192.png
@@ -47,4 +47,4 @@ echo ">> twitter-image (copy of OG, 1200x630)"
 cp public/opengraph-image.png public/twitter-image.png
 
 echo "DONE. Generated:"
-ls -la public/icon-*.png public/apple-icon.png public/favicon-*.png public/opengraph-image.png public/twitter-image.png app/favicon.ico
+ls -la public/icon-*.png public/apple-icon.png public/favicon-*.png public/favicon.ico public/opengraph-image.png public/twitter-image.png

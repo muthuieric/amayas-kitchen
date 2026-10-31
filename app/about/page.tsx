@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Heart, Leaf, Soup, MapPin } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
+import { breadcrumbSchema, jsonLdString } from "@/lib/structured-data";
 
 export const metadata = buildMetadata({
   title: "Our Story - Amayas Swahili Kitchen",
@@ -29,8 +30,22 @@ const VALUES = [
 ];
 
 export default function AboutPage() {
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "About", path: "/about" },
+      ]),
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdString(graph) }}
+      />
       <section className="relative overflow-hidden border-b">
         <Image
           src="/amaya-10.jpg"

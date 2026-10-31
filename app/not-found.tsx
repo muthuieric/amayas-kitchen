@@ -1,4 +1,12 @@
 import Link from "next/link";
+import { buildMetadata } from "@/lib/metadata";
+
+export const metadata = buildMetadata({
+  title: "Page Not Found - Amayas Swahili Kitchen",
+  description:
+    "The page you're looking for doesn't exist. Visit Amayas Swahili Kitchen in Kilimani, Nairobi - view the menu, book a table, or contact us.",
+  path: "/404",
+});
 
 export default function NotFound() {
   return (
